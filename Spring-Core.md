@@ -7,3 +7,5 @@
 **AnnotationConfigApplicationContext** is the implementation of AbstractApplicationContext abstract class and it’s used for autowiring the services to components when annotations are used.
 
 **ClassPathXmlApplicationContext** is used to get the ApplicationContext object by providing the configuration files location. It has multiple overloaded constructors and we can provide multiple config files also.
+
+Both of these classes are part of **spring-context** dependency.
