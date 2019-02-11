@@ -4,6 +4,8 @@
 - **@ComponentScan** annotation is used with @Configuration annotation to specify the packages to look for Component classes.
 - **@Bean** annotation is used to let Spring framework know that this method should be used to get the bean implementation to inject in Component classes.
 
+- **@Qualifier** is useful for the situation where you have more than one bean matching the type of dependency and thus resulting in ambiguity.
+
 **AnnotationConfigApplicationContext** is the implementation of AbstractApplicationContext abstract class and it’s used for autowiring the services to components when annotations are used.
 
 **ClassPathXmlApplicationContext** is used to get the ApplicationContext object by providing the configuration files location. It has multiple overloaded constructors and we can provide multiple config files also.
