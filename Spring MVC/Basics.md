@@ -11,3 +11,8 @@
 1. Once view is finalized, The DispatcherServlet passes the model data to the view which is finally rendered on the browser.
 
 All the above-mentioned components, i.e. HandlerMapping, Controller, and ViewResolver are part of WebApplicationContext which is an extension of the plainApplicationContext with some extra features necessary for web applications.
+
+## web.xml
+**context-param** is used to store some data for whole application.
+
+**init-param** is used to store some data which is specific to a particular servlet.
