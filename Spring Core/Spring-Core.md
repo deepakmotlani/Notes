@@ -6,6 +6,7 @@
 - **@Resource** This annotation takes an optional name argument. In case no name attribute is specified with this annotation, the default name is interpreted from the field-name or the setter method (i.e. the bean property name). Always remember that if the @Resource annotation doesn’t find the bean with the name it will automatically switch it’s autowiring technique to autowire=byType (i.e. @Autowired annotation).
 - **@Configuration** annotation is used to let Spring know that it’s a Configuration class.
 - **@ComponentScan** annotation is used with @Configuration annotation to specify the packages to look for Component classes.
+Or if we write <context:component-scan base-package=""/> it is similar, it will scan all the classes in base-package which are annotated with @Component, @Repository, @Service, @Controller. This also resolves @Autowired & @Qualifier annotations.
 - **@Bean** annotation is used to let Spring framework know that this method should be used to get the bean implementation to inject in Component classes.
 
 - **@Qualifier** is useful for the situation where you have more than one bean matching the type of dependency and thus resulting in ambiguity.
