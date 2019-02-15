@@ -16,3 +16,28 @@ All the above-mentioned components, i.e. HandlerMapping, Controller, and ViewRes
 **context-param** is used to store some data for whole application.
 
 **init-param** is used to store some data which is specific to a particular servlet.
+
+## Application Context v/s Web Application Context
+
+In Spring Web applications there are 2 types of containers, each of which is configured & initialized differently. One is **Application Context** & other is **Web Application Context**.
+
+**Application Context** is container initialized by **ContextLoaderListener** or **ContextLoaderServlet** in web.xml, & this is how it is configured.
+
+![Context Loader](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/web-xml-context-loader.PNG)
+
+In the above configuration, I am asking spring to load all files that match -context.xml & create an Application Context from it. This context may contain-
+1. Middle-tier transaction services
+2. Data access objects & anything that you might want to use across application.
+
+**Remember there is 1 Application Context per application.**
+
+**Web Application Context** is the child context of application context. Each DispatcherServlet defined in Spring web application will have an associated web Application Context. This is how we initialize it.
+
+![Dispatch Servlet](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/web-xml-dispatcher-servlet.PNG)
+
+You should also specify the servlet-mapping tag to map the url-pattern which this servlet would handle. Specifying init-param in Dispatcher servlet is optional, if you don't specify it would take the contextConfigLocation defined in context-param.
+
+**Points to understand**
+1. ContextLoaderListener creates a root web-application-context for web-application & puts it in ServletContext.
+2. DispatcherServlet creates its own WebApplicationContext, handlers/controllers/view-resolvers are managed by this context.
+3. When ContextLoaderListener is used in with DispatcherServlet, a root web-application-context is created first & a child-context is also created by DispatcherServlet & is attached to root-application-context.
