@@ -1,4 +1,5 @@
-![Spring MVC](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/MVC-basics.PNG)
+### Spring MVC Architecture
+![Spring MVC](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/MVC-basics-1.PNG)
 
 ## Following is the sequence of events corresponding to an incoming HTTP request to DispatcherServlet −
 
