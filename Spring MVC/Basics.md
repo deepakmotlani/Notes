@@ -29,13 +29,14 @@ In the above configuration, I am asking spring to load all files that match -con
 1. Middle-tier transaction services
 2. Data access objects & anything that you might want to use across application.
 
-**Remember there is 1 Application Context per application.**
+**Remember there is 1 Application Context per application, which acts as root-application-context & it is shared between multiple we application context. Using context-param to define contextConfigLocation creates this root-application context.**
 
 **Web Application Context** is the child context of application context. Each DispatcherServlet defined in Spring web application will have an associated web Application Context. This is how we initialize it.
 
 ![Dispatch Servlet](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/web-xml-dispatcher-servlet.PNG)
 
-You should also specify the servlet-mapping tag to map the url-pattern which this servlet would handle. Specifying init-param in Dispatcher servlet is optional, if you don't specify it would take the contextConfigLocation as [servlet-name]-servlet.xml.
+You should also specify the servlet-mapping tag to map the url-pattern which this servlet would handle. 
+Specifying init-param in Dispatcher servlet is optional, if you don't specify it would take the contextConfigLocation as [servlet-name]-servlet.xml. This application context created is specific to this particular web-application-context.
 
 **Points to understand**
 1. ContextLoaderListener creates a root web-application-context for web-application & puts it in ServletContext.
