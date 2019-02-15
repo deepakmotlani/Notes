@@ -35,7 +35,7 @@ In the above configuration, I am asking spring to load all files that match -con
 
 ![Dispatch Servlet](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/web-xml-dispatcher-servlet.PNG)
 
-You should also specify the servlet-mapping tag to map the url-pattern which this servlet would handle. Specifying init-param in Dispatcher servlet is optional, if you don't specify it would take the contextConfigLocation defined in context-param.
+You should also specify the servlet-mapping tag to map the url-pattern which this servlet would handle. Specifying init-param in Dispatcher servlet is optional, if you don't specify it would take the contextConfigLocation as [servlet-name]-servlet.xml.
 
 **Points to understand**
 1. ContextLoaderListener creates a root web-application-context for web-application & puts it in ServletContext.
