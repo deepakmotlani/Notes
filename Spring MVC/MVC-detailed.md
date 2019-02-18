@@ -5,3 +5,6 @@ In addition it also applies some defaults like, support for formatting number fi
 **context:annotation-config**, resolves @Autowired & @Qualifier annotations for the beans which are already created & stored in spring container. on the contrary **context:component-scan** also scans the package for registering the beans & also wire the beans.
 
 We can use **@RequestMapping** to map request to controller methods. It has various attributes like value, method, params, headers & meadia types.. There are also HTTP method specific shortcut variants of @RequestMapping i.e. @GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping.
+
+
+We can use Interceptors to intervene the request processing, each interceptor implements HandlerInterceptor interface & provides implementation to preHandle, postHandle & afterCompletation method.
