@@ -40,3 +40,5 @@ Query for populating multiple domain objects
 
 **NamedParameterJdbcTemplate** class adds support for using named parameters instead of class placeholder '?'. You can pass all your query parameters in the form of a Map. You can also use **SqlParameterSource** to pass parameters to NamedParameterJdbcTemplate, where keys are the parameter names & values are parameter values.
 
+We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder**
+
