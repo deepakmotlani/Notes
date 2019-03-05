@@ -17,7 +17,7 @@ Output would be
 
 ![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-static-method-usage-result.PNG)
 
-Default Method Example
+Default Method can be overridden by implementing class & can be access by creating new object of sub class.
 
 ![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-default-method.PNG)
 
