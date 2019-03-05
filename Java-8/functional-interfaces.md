@@ -28,3 +28,9 @@ Since Comparator is a functional interface, we can also write it using lambda ex
 Since we already have method to compare age, we can use **method reference i.e. ::** also like below
 
 ![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/example-1-using-method-ref.PNG)
+
+**Kinds of Method References**
+* Reference to static method - ContainingClass::staticMethodName
+* Reference to instance method of particular object - containingObject::instanceMethodName
+* Reference to instance method of arbitary object of a particular type - ContainingType::methodName
+* Reference to constructor - ClassName::new
