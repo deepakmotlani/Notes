@@ -16,3 +16,15 @@ To call it out side the interface, standard approach would be
 Output would be
 
 ![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-static-method-usage-result.PNG)
+
+Default Method Example
+
+![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-default-method.PNG)
+
+Usage
+
+![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-default-method-usage.PNG)
+
+Result
+
+![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-default-method-usage-result.PNG)
