@@ -17,6 +17,9 @@ Annotate methods with @FunctionalInterface, at first, this annotation seems to b
 
 We can also add default methods to Functional Interface.
 
+## Method References
+You can create lambda expression to create anonymous methods. Sometimes, however, a lambda expression does nothing but call an existing method. Method references enable you to do this, they are compact & easy to read.
+
 **Example code for comparing age & sorting**
 
 ![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/example-1-normal-java-code.PNG)
