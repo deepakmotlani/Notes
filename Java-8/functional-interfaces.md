@@ -1,5 +1,5 @@
 
-### Functional Interfaces
+## Functional Interfaces
 
 are gathered in java.uitl.function package, satisfy most developers needs. Interfaces with only 1 abstract method act as functional interfaces.
 
