@@ -99,13 +99,13 @@ In this example the Employee entity has composite key.
 
 **Second Level Cache** - It is an optional cache, it is implemented at class level. It stores the entity data but not the entity. Data is stored in dehydrated format in hashmap, where key is entity id & value is list of primitive values. It is used to cache the data across sessions. It is associated with SessionFactory. It is not enabled by default.
 
-*-----------------------------------------*
-|          Person Data Cache              |
-|-----------------------------------------|
-| 1 -> [ "John" , "Q" , "Public" , null ] |
-| 2 -> [ "Joey" , "D" , "Public" ,  1   ] |
-| 3 -> [ "Sara" , "N" , "Public" ,  1   ] |
-*-----------------------------------------*
+Person Data Cache
+|Key|Value|
+|---|---|
+|1|[ "John" , "Q" , "Public" , null ]|
+|2|[ "Joey" , "D" , "Public" ,  1   ]|
+|3|[ "Sara" , "N" , "Public" ,  1   ]|
+
 
 **Query Cache**, looks like an hashmap where key is composed by query text & values & value is list of entity id's.
 
