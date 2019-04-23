@@ -107,4 +107,76 @@ public class TeamLeader extends Manager {
         return "I am " + getName() + ", Team Leader";
     }
 }
+public class Developer implements Employee {
+    String name;
+    public Developer(String name) {
+        this.name = name;
+    }
+    @Override
+    public String getName() {
+        return this.name;
+    }
+    @Override
+    public void add(Employee e) {
+    }
+    @Override
+    public void remove(Employee e) {
+    }
+    @Override
+    public List<Employee> getEmployees() {
+        return null;
+    }
+    @Override
+    public int estimateProject(String projectDescription) {
+        return new Random().nextInt(24);
+    }
+    @Override
+    public String toString() {
+        return "I am " + getName() + ", Developer";
+    }
+}
+
+```
+Now let's implement a structure & see how it works
+```
+public class Composite {
+    public static void main(String... args) {
+        final Developer d1 = new Developer("Jack");
+        final Developer d2 = new Developer("Jill");
+        final Developer d3 = new Developer("Brian");
+        final Developer d4 = new Developer("Bob");
+        final Manager tl1 = new TeamLeader("Marc");
+        final Manager tl2 = new TeamLeader("Christian");
+        final Manager tl3 = new TeamLeader("Phil");
+        tl1.add(d3);
+        tl1.add(d2);
+        tl2.add(d1);
+        tl3.add(d4);
+        final Manager sm1 = new SeniorManager("Harald");
+        final Manager sm2 = new SeniorManager("Klaus");
+        sm1.add(tl3);
+        sm1.add(tl2);
+        sm2.add(tl1);
+        final VP vp = new VP("Joseph");
+        vp.add(sm1);
+        vp.add(sm2);
+        System.out.println("Our estimate is: " + vp.estimateProject("New exotic feature"));
+    }
+}
+```
+
+**Output**
+```
+I am Joseph, the VP, and calling for an estimate…
+I am Harald, Senior Manager
+I am Phil, Team Leader
+I am Bob, Developer
+I am Christian, Team Leader
+I am Jack, Developer
+I am Klaus, Senior Manager
+I am Marc, Team Leader
+I am Brian, Developer
+I am Jill, Developer
+Original estimate: 9
+Our estimate is: 18
 ```
