@@ -1,0 +1,2 @@
+### Singleton 
+As per this pattern only 1 instance should be instantiated. 1 way to acheieve this is to make the contructor of the class private & have a static method which will create a single instance & return it to all the invokers.
