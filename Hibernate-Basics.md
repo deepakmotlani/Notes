@@ -25,10 +25,10 @@ merge() should be used if you don't know the state of the session, means you wan
 
 
 ### @EmbeddedId is used to instruct Hibernate that the Employee entity uses a compound key.
-
-@Embeddable<br/>
-public class EmployeeId implements Serializable { <br/>
-    @Column(name = "company_id")<br/>
+```
+@Embeddable
+public class EmployeeId implements Serializable {
+    @Column(name = "company_id")
     private Long companyId;
  
     @Column(name = "employee_number")
@@ -89,7 +89,7 @@ public class Employee {
         this.name = name;
     }
 }
-
+```
 In this example the Employee entity has composite key.
 
 
