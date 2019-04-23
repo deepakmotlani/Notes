@@ -119,3 +119,12 @@ Person Data Cache
 If a query under execution has previously cached results, then no SQL statement is sent to the database. Instead the query results are retrieved from the query cache, and then the cached entity identifiers are used to access the second level cache.
 
 If the second level cache contains data for a given Id, it re-hydrates the entity and returns it. If the second level cache does not contain the results for that particular Id, then an SQL query is issued to load the entity from the database.
+
+### Annotations
+**@Entity** annotation marks this class as an entity.
+
+**@Table** annotation specifies the table name where data of this entity is to be persisted. If you don't use @Table annotation, hibernate will use the class name as the table name by default.
+
+**@Id** annotation marks the identifier for this entity.
+
+**@Column** annotation specifies the details of the column for this property or field. If @Column annotation is not specified, property name will be used as the column name by default.
