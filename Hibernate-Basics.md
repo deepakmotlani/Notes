@@ -93,11 +93,11 @@ public class Employee {
 In this example the Employee entity has composite key.
 
 
-Hibernate Caching -
+### Hibernate Caching -
 
-First Level Cache - Also called session cache & it is mandatory. It is from first level cache that all requests should pass. Session object stores an object under its control before committing it to db. When session object is closed the cached objects are gone. Whenever a query is executed the results are retrieved from db & stored in session cache, if we execute the same query next time within the same session, it will return the results from cache & not hit the database. Loaded entity can removed from session using evict() method, whole session can be removed using clear() method.
+**First Level Cache** - Also called session cache & it is mandatory. It is from first level cache that all requests should pass. Session object stores an object under its control before committing it to db. When session object is closed the cached objects are gone. Whenever a query is executed the results are retrieved from db & stored in session cache, if we execute the same query next time within the same session, it will return the results from cache & not hit the database. Loaded entity can removed from session using evict() method, whole session can be removed using clear() method.
 
-Second Level Cache - It is an optional cache, it is implemented at class level. It stores the entity data but not the entity. Data is stored in dehydrated format in hashmap, where key is entity id & value is list of primitive values. It is used to cache the data across sessions.
+**Second Level Cache** - It is an optional cache, it is implemented at class level. It stores the entity data but not the entity. Data is stored in dehydrated format in hashmap, where key is entity id & value is list of primitive values. It is used to cache the data across sessions. It is associated with SessionFactory. It is not enabled by default.
 
 *-----------------------------------------*
 |          Person Data Cache              |
@@ -107,7 +107,7 @@ Second Level Cache - It is an optional cache, it is implemented at class level. 
 | 3 -> [ "Sara" , "N" , "Public" ,  1   ] |
 *-----------------------------------------*
 
-Query Cache, looks like an hashmap where key is composed by query text & values & value is list of entity id's.
+**Query Cache**, looks like an hashmap where key is composed by query text & values & value is list of entity id's.
 
 *----------------------------------------------------------*
 |                       Query Cache                        |                     
@@ -118,7 +118,3 @@ Query Cache, looks like an hashmap where key is composed by query text & values 
 If a query under execution has previously cached results, then no SQL statement is sent to the database. Instead the query results are retrieved from the query cache, and then the cached entity identifiers are used to access the second level cache.
 
 If the second level cache contains data for a given Id, it re-hydrates the entity and returns it. If the second level cache does not contain the results for that particular Id, then an SQL query is issued to load the entity from the database.
-
-What is the difference between first level cache and second level cache?
-First Level Cache is associated with Session. It is enabled by default.
-Second Level Cache is associated with SessionFactory. It is not enabled by default.
