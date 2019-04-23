@@ -110,11 +110,11 @@ Person Data Cache
 
 **Query Cache**, looks like an hashmap where key is composed by query text & values & value is list of entity id's.
 
-*----------------------------------------------------------*
-|                       Query Cache                        |                     
-|----------------------------------------------------------|
-| ["from Person where firstName=?", ["Joey"] ] -> [1, 2] ] |
-*----------------------------------------------------------*
+
+|Key|Value|
+|---|---|
+| ["from Person where firstName=?", ["Joey"] ] | [1, 2] ] |
+
 
 If a query under execution has previously cached results, then no SQL statement is sent to the database. Instead the query results are retrieved from the query cache, and then the cached entity identifiers are used to access the second level cache.
 
