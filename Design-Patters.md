@@ -1,9 +1,11 @@
 ## Design Patterns
 
-**Singleton** - As per this pattern only 1 instance should be instantiated. 1 way to acheieve this is to make the contructor of the class private & have a static method which will create a single instance & return it to all the invokers.
+### Singleton 
+As per this pattern only 1 instance should be instantiated. 1 way to acheieve this is to make the contructor of the class private & have a static method which will create a single instance & return it to all the invokers.
 
 
-**Factory** - Let's take an example that every application has to go through following phases i.e. development, testing & acceptance. Now this applications could be implemented on any OS i.e. iOS, Android, Windows etc. So in order to get the app of a particular type we create factory classes, i.e. separation of decision making into a separate class.
+### Factory
+Let's take an example that every application has to go through following phases i.e. development, testing & acceptance. Now this applications could be implemented on any OS i.e. iOS, Android, Windows etc. So in order to get the app of a particular type we create factory classes, i.e. separation of decision making into a separate class. Applicable only if the parent type is common for all sub types
 
 ```
 public static App createApp(AppType type) {
@@ -26,7 +28,8 @@ public static App createApp(AppType type) {
 }
 ```
 
-**Decorator** - This is used when we want to have a default behaviour for all objects & have some special decorations on top of some objects & have some other decorations on others.
+### Decorator
+This is used when we want to have a default behaviour for all objects & have some special decorations on top of some objects & have some other decorations on others.
 
 ```
 public interface App {    
