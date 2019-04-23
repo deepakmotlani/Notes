@@ -180,3 +180,5 @@ I am Jill, Developer
 Original estimate: 9
 Our estimate is: 18
 ```
+
+This example shows how it goes down to each individual employee & gets the estimate.
