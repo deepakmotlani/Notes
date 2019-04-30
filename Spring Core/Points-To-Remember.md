@@ -102,15 +102,15 @@ Lest say Test class has properties name & car & it has a constructor with both a
 <bean id="t" class="beans.Test" c:name="Deepak" c:car-ref="car"/>
 ```
 
-** Autowiring**
+**Autowiring**
 * Automatic dependency injection, can be used only for secondary data types. 
 * Autowiring is of following types byType, byName, constructor, auto-detect & no. 
-** byType - it will look for beans of that type & inject it, if there are multiple beans of same type, it gives
+	* byType - it will look for beans of that type & inject it, if there are multiple beans of same type, it gives
 	ambiguity. We can solve that ambiguity by using ***autowire-candidate*** as false on all beans except 1.
-** byName - it checks for the beans with type & name(name of property in dependent class) & then inject it.
-** constructor - if you have constructor DI in your class. It checks for constructor & when it finds 1, it will
+	* byName - it checks for the beans with type & name(name of property in dependent class) & then inject it.
+	* constructor - if you have constructor DI in your class. It checks for constructor & when it finds 1, it will
 	check parameters & then search those beans in application context byType.
-** auto-detect - if you don't know whether your class as constructor or setter DI. In this case if it finds 
+	* auto-detect - if you don't know whether your class as constructor or setter DI. In this case if it finds 
 	deafult constructor then it uses to initialize the bean & then call setters, otherwise it uses parameterized
 	constructor & doesn't use setters.
 
@@ -120,20 +120,26 @@ Lest say Test class has properties name & car & it has a constructor with both a
 * @Qualifier annotation can be used to specify the name of bean to inject. So if you have multiple beans of same type then @Qualifier is required.
 * To activate this you need to instatiniate AutowiredAnnotationBeanPostProcessor class. 
 
-Stereo types - this will create bean instances
-@Controller
-@Service
-@Repository
-@Component
-to use this we need to add a tag <context:component-scan base-package=""/>, this scans all the classes in base-package.
+**Stereo types** - this will create bean instances
+* @Controller
+* @Service
+* @Repository
+* @Component
+* to use this we need to add a tag, which scans all the classes in base-package.
+```
+<context:component-scan base-package=""/>
+``` 
 
-<context:annotation-config/>, it activates all the annotation i.e @Required, @Autowired & all stereo types, if we 
+* context-annotation-config, activates all the annotation i.e @Required, @Autowired & all stereo types, if we 
 	use this then we don't need to instatiniate any AutowiredAnnotationBeanPostProcessor. So just specify 
 	context:component-scan & context:annotation-config it will take care of instatinating & autiwiring all objects.
+```
+<context:annotation-config/>
+```
 
-Automatic Dependency Injection works only for secondary parameters or objects in classes.
----------------
-You can instantiate classes with static variables, for ex -
+* Automatic Dependency Injection works only for secondary parameters or objects in classes.
+* You can instantiate classes with static variables, for ex -
+```
 package beans;
 class Car {
 	private static String name;
@@ -142,7 +148,9 @@ class Car {
 		Car.name = name;
 	}
 }
-we can use MethodInvokingFactoryBean as below-
+```
+we can use **MethodInvokingFactoryBean** as below -
+```
 <bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 	<property name="staticMethod" value="beans.Car.setName"/>
 	<property name="arguements">
@@ -151,16 +159,20 @@ we can use MethodInvokingFactoryBean as below-
 		</list>
 	</property>
 </bean>
----------------
-bean provides factory-method attribute which can be used to invoke factory-method of the class to get the instances.
-Ex- Calendar calendar = Calendar.getInstance(), returning same class instance
+```
+
+* bean provides factory-method attribute which can be used to invoke factory-method of the class to get the instances.
+```
+Calendar calendar = Calendar.getInstance() //Factory class returning same class instance.
 <bean id="c" class="java.util.Calendar" factory-method="getInstance"/>
 
-LoggerFactory.getLogger returns Logger class object.
-<bean id="l" class="java.util.Logger" factory-method="getLogger"/>
 
-if your bean objects are created from instance methods instead of static methods, then too you can use, 
-	factory-method along with factory-bean
-ex:you have SessionFactory object, using which you will call getSession to get Session object.
+LoggerFactory.getLogger(); //returns Logger class object.
+<bean id="l" class="java.util.Logger" factory-method="getLogger"/>
+```
+* if your bean objects are created from instance methods instead of static methods, then too you can use,  factory-method along with factory-bean.
+* Ex:you have SessionFactory object, using which you will call getSession to get Session object.
+```
 <bean id="sf" class="[actual-package].SessionFactory"/>
 <bean id="sf" factory-bean="sf" factory-method="openSession" />
+```
