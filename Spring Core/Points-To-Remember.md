@@ -174,5 +174,5 @@ LoggerFactory.getLogger(); //returns Logger class object.
 * Ex:you have SessionFactory object, using which you will call getSession to get Session object.
 ```
 <bean id="sessionFactory" class="[actual-package].SessionFactory"/>
-<bean id="session" factory-bean="sf" factory-method="openSession" />
+<bean id="session" factory-bean="sessionFactory" factory-method="openSession" />
 ```
