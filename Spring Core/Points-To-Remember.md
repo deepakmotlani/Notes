@@ -86,38 +86,39 @@ by default.
 * dependency-check is equivalent to @Required annotation on setter methods. To use @Required, you need to instatiniate
 ***RequiredAnnotationBeanPostProcessor***.
 
-if class has a dependency of other class, we can use depends-on, A depends-on B. depends-on is an attribute in 
-	bean tag, you can specify reference of the bean in depends-on attribute.
+* If class has a dependency of other class, we can use ***depends-on***, A depends-on B. depends-on is an attribute in  bean tag, you can specify reference of the bean in depends-on attribute.
 	
-p & c namespace, p namespace is used for setter DI. 
-	Lest say Test class has properties name & car then we can set them using p namespace as below-
-	<bean id="car" class="beans.Car"/>
-	<bean id="t" class="beans.Test" p:name="Deepak" p:car-ref="car"/>
-	
-	c namespace is used for constructor DI.
-	Lest say Test class has properties name & car & it has a constructor with both attribute 
-		then we can set them using c namespace as below-
-	<bean id="car" class="beans.Car"/>
-	<bean id="t" class="beans.Test" c:name="Deepak" c:car-ref="car"/>
-	[=,m9[hhh(
+**p & c namespace**, 
+* **p namespace** is used for setter DI. 
+Lest say Test class has properties name & car then we can set them using p namespace as below -
+```
+<bean id="car" class="beans.Car"/>
+<bean id="t" class="beans.Test" p:name="Deepak" p:car-ref="car"/>
+```
+* **c namespace** is used for constructor DI.
+Lest say Test class has properties name & car & it has a constructor with both attribute then we can set them using c namespace as below -
+```
+<bean id="car" class="beans.Car"/>
+<bean id="t" class="beans.Test" c:name="Deepak" c:car-ref="car"/>
+```
 
-Autowiring - automatic dependency injection, can be used only for secondary data types. autowiring is of following
-	type byType, byName, constructor, auto-detect & no. bean tag has autowire attribute for that particular bean.
-	beans tag also has autowire attribute which applies to bean declared in it.
-	byType - it will look for beans of that type & inject it, if there are multiple beans of same type, it gives
-		ambiguity. We can solve that ambiguity by using autowire-candidate as false on all beans except 1.
-	byName - it checks for the beans with type & name(name of property in dependent class) & then inject it.
-	constructor - if you have constructor DI in your class. It checks for constructor & when it finds 1, it will
-		check parameters & then search those beans in application context byType.
-	auto-detect - if you don't know whether your class as constructor or setter DI. In this case if it finds 
-		deafult constructor then it uses to initialize the bean & then call setters, otherwise it uses parameterized
-		constructor & doesn't use setters.
+** Autowiring**
+* Automatic dependency injection, can be used only for secondary data types. 
+* Autowiring is of following types byType, byName, constructor, auto-detect & no. 
+** byType - it will look for beans of that type & inject it, if there are multiple beans of same type, it gives
+	ambiguity. We can solve that ambiguity by using ***autowire-candidate*** as false on all beans except 1.
+** byName - it checks for the beans with type & name(name of property in dependent class) & then inject it.
+** constructor - if you have constructor DI in your class. It checks for constructor & when it finds 1, it will
+	check parameters & then search those beans in application context byType.
+** auto-detect - if you don't know whether your class as constructor or setter DI. In this case if it finds 
+	deafult constructor then it uses to initialize the bean & then call setters, otherwise it uses parameterized
+	constructor & doesn't use setters.
 
-@Autowired annotation can also be used, which is byType zx zqa default. For this we don't need any constructor & setter in
-	our class.
-@Qualifier annotation can be used to specify the name of bean to inject. So if you have multiple beans of same type	
-	then @Qualifier is required.
-To activate this you need to instatiniate AutowiredAnnotationBeanPostProcessor class. 
+* bean tag has autowire attribute for that particular bean.
+* beans tag also has autowire attribute which applies to bean declared in it.
+* @Autowired annotation can also be used, which is byType default. For this we don't need any constructor & setter in our class.
+* @Qualifier annotation can be used to specify the name of bean to inject. So if you have multiple beans of same type then @Qualifier is required.
+* To activate this you need to instatiniate AutowiredAnnotationBeanPostProcessor class. 
 
 Stereo types - this will create bean instances
 @Controller
