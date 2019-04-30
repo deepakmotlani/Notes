@@ -173,6 +173,6 @@ LoggerFactory.getLogger(); //returns Logger class object.
 * if your bean objects are created from instance methods instead of static methods, then too you can use,  factory-method along with factory-bean.
 * Ex:you have SessionFactory object, using which you will call getSession to get Session object.
 ```
-<bean id="sf" class="[actual-package].SessionFactory"/>
-<bean id="sf" factory-bean="sf" factory-method="openSession" />
+<bean id="sessionFactory" class="[actual-package].SessionFactory"/>
+<bean id="session" factory-bean="sf" factory-method="openSession" />
 ```
