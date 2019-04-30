@@ -5,7 +5,7 @@
 |Needs only jdk|EJB app server to run|
 
 **Advantages of Spring**
-* Makes your application loght-weight as it ensures loose coupling.
+* Makes your application light-weight as it ensures loose coupling.
 
 **IOC container** 
 * Can read XML file to identify all the dependencies of our classes.
@@ -59,35 +59,32 @@ you can supply them using init-param & context-param which are supplied to Servl
 ```
 
 * In case if you have User Defined Object to pass you should use "ref" attribute. This is pass by reference.
-*In case if you want to pass by Object, we can use inner-bean tag in property/constructor-arg tag.
+* In case if you want to pass by Object, we can use inner-bean tag in property/constructor-arg tag.
+* If you want to pass array values then you can use "list" tag in between property/constructor-arg, this list tag can have multiple value tags or multiple ref tag.
+
+**for passing collections**
+* list - we have to use ***list*** tag in property/constructor-arg tag. It creates ArrayList object by default.
+* set - we have to use ***set*** tag in property/constructor-arg tag. It creates LinkedHashSet object by default.
+* map - we can have ***map*** tag which contains entry tag with key & value attribute. It creates LinkedHashMap object 
+by default.
 	
-If you want to pass array values then you can use "list" tag in between property/constructor-arg, this list tag
-	can have multiple value tags or multiple ref tag.
+* If you want to create any specific collection you can use ***util:list***, ***util:map***, ***util:set*** tag where you can specify class name in property/constructor-arg tag.
 
-for collections
-	list - we have to use list tag in property/constructor-arg tag. It creates ArrayList object by default.
-	set - we have to use set tag in property/constructor-arg tag. It creates LinkedHashSet object by default.
-	map - we can have map tag which contains entry tag with key & value attribute. It creates LinkedHashMap object 
-	by default.
-	
-if you want to create any specific collection you can use util:list, util:map, util:set tag where you can specify
-	class name in property/constructor-arg tag.
+* If you have a Properties object in your class, you can initialize it using <props> tag within <property> tag.
 
-If you have a Properties object in your class, you can initialize it using <props> tag with <property> tag.
+* If you want to load data from properties file then you can use ***property*** tag within which you can use ***util:properties*** & specify the file location.
 
-If you want to load data from properties file then you can use property tag within which you can use util:properties
-	& specify the file location.
+* Constructor dependency injection is compulsory.
 
-constructor dependency injection is compulsory
-depecndency-check attribute is used to specify whether setter DI is cumpoolsory for your beans.
-possible values none, simple, objects & all
-	none means it is not necessary to pass any args to setter injections.
-	simple means it is compulsory to initialize all primitives
-	object means it is compulsory to initialize all objects
-	all means it is compulsory to initialize all parameters in bean
-	
-depecndency-check is equivalent to @Required annotation on setter methods. To use @Required, you need to instatiniate
-RequiredAnnotationBeanPostProcessor.
+**dependency-check** attribute is used to specify whether setter DI is compulsory for your beans.
+* possible values none, simple, objects & all
+	* none means it is not necessary to pass any args to setter injections.
+	* simple means it is compulsory to initialize all primitives
+	* object means it is compulsory to initialize all objects
+	* all means it is compulsory to initialize all parameters in bean
+
+* dependency-check is equivalent to @Required annotation on setter methods. To use @Required, you need to instatiniate
+***RequiredAnnotationBeanPostProcessor***.
 
 if class has a dependency of other class, we can use depends-on, A depends-on B. depends-on is an attribute in 
 	bean tag, you can specify reference of the bean in depends-on attribute.
