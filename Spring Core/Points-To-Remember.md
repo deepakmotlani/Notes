@@ -1,68 +1,65 @@
-Spring vs EJB
-Spring is light weight, while EJB are heavy weight.
-Spring creates loosely copuled, while EJB creates tightly coupled.
-Spring needs only jdk, while EJB app server to run.
+|Spring|EJB|
+|---|---|
+|Light weight|Heavy weight|
+|Loosely copuled|Tightly coupled|
+|Needs only jdk|EJB app server to run|
 
-Advantages of Spring
-Makes your application loght-weight as it ensures loose coupling.
+**Advantages of Spring**
+* Makes your application loght-weight as it ensures loose coupling.
 
-IOC container can read XML file to identify all the dependencies of our classes & supply them to our classes. 
-	Create bean instances.
-	It also manage life cycle of POJO classes.
-	It performs Dependency Injection, also supply runtime parameters.
-IOC contains 2 containers Core(BeanFactory) & J2EE(ApplicationContext)
-MVC container 1 container i.e. Web(WebApplicationContext)
+**IOC container** 
+* Can read XML file to identify all the dependencies of our classes.
+* Create bean instances.
+* It also manage life cycle of POJO classes.
+* It performs Dependency Injection, also supply runtime parameters.
+* IOC contains 2 containers **Core(BeanFactory)** & **J2EE(ApplicationContext)** & MVC contains 1 container i.e. **Web(WebApplicationContext)**
+* BeanFactory has an implementation class i.e. XMLBeanFactory.
+* ApplicationContext it has an implementation class ConfigurableApplicationContext, which is implemented by ClassPathXMLApplicationContext.
+* We can start XMLBeanFactory/ClassPathXMLApplicationContext by using new XMLBeanFactory()/ClassPathXMLApplicationContext().
+* For Standalone application, possible bean scopes are singleton & prototype.
+* For Web Applications, possible bean scopes are singleton, prototype, request, session & context.
+* The main root tag in the spring xml file is beans.
 
-BeanFactory has an implementation class i.e. XMLBeanFactory, for ApplicationContext it has an implementation class
-ConfigurableApplicationContext, which is implemented by ClassPathXMLApplicationContext.
-
-We can start XMLBeanFactory/ClassPathXMLApplicationContext by using new XMLBeanFactory()/ClassPathXMLApplicationContext()
-For Standalone application, possible bean scopes are singleton & prototype.
-For Web Applications, possible bean scopes are singleton, prototype, request, session & context.
-The main root tag in the spring xml file is <beans>
-XML structure looks like
+XML structure looks like -
+```
 <beans>
 	<bean class="com.Text" id="t">
 	</bean>
 </beans>
+```
 
-Servlet Container performs following, read web.xml & manage life cycle of our servlets. If you have some parameters 
+* Servlet Container performs following, read web.xml & manage life cycle of our servlets. If you have some parameters 
 you can supply them using init-param & context-param which are supplied to Servlet.
 
-Diff b/w BeanFactory & ApplicationContext
-BeanFactory creates object when getBean() method is called i.e. on demand i.e. This is called Lazy Container.
-ApplicationContext creates object when container loads the spring XML files. This is called Eager Container
-	(in case if bean scope is singleton). This has more features as compared to BeanFactory, 
-	that's why it is recommended.
-	
-For scope prototype both containers create instances on user request.
+**Diff b/w BeanFactory & ApplicationContext**
+* BeanFactory creates object when getBean() method is called i.e. on demand i.e. This is called Lazy Container.
+* ApplicationContext creates object when container loads the spring XML files. This is called Eager Container(in case if bean scope is singleton). This has more features as compared to BeanFactory, that's why it is recommended.
 
-Containers create objects using Class.forName(). Spring can create instances even if the constructor is private
-	for the class. It internally uses reflexion, it access the constructor of your class & then create instance.
+* For scope prototype both containers create instances on user request.
 
-By using reflexion we can also create instance of classes with private constructor.
+* Containers create objects using Class.forName(). Spring can create instances even if the constructor is private for the class. It internally uses reflexion, it access the constructor of your class & then create instance.
+* By using reflexion we can also create instance of classes with private constructor.
 
-2 types of DI i.e. Setter & Constructor.
+**Types of DI i.e. Setter & Constructor.**
 
-Setter DI - specifying property tag it passes the value to setter methods, this tag can have value attribute or 
-	it can also have value tag as child of property tag. You can only supply 1 parameter, this is the limitation
-	of setter DI.
+* Setter DI - specifying property tag it passes the value to setter methods, this tag can have value attribute or it can also have value tag as child of property tag. You can only supply 1 parameter, this is the limitation of setter DI.
+```
 <bean>
 	<property name="address" value="">
 </bean>
-
-Constructor DI - here also you can have value attribute or value tag. if you don't specify constructor-arg it will 
-	call default constructor. If you have overloaded constructors then if 1st constructor has String arguement
-		then 2nd constructor can't have String arguement & in this case while initializing you have to specify	
-		type attribute to decide which constructor to invoke.
-		You can specify multiple constructor-arg tags to call constructor with more than 1 args. You can specify
-		index to specify which value to pass in which arguement.
+```
+* Constructor DI - here also you can have value attribute or value tag. 
+	* if you don't specify constructor-arg it will call default constructor. 
+	* If you have overloaded constructors then if 1st constructor has String arguement then 2nd constructor can't have String arguement & in this case while initializing you have to specify type attribute to decide which constructor to invoke.
+	* You can specify multiple constructor-arg tags to call constructor with more than 1 args. You can specify index to specify which value to pass in which arguement.
+```
 <bean>
 	<constructor-arg value="">
 </bean>
+```
 
-	In case if you have User Defined Object to pass you should use "ref" attribute. This is pass by reference.
-	In case if you want to pass by Object, we can use inner-bean tag in property/constructor-arg tag.
+* In case if you have User Defined Object to pass you should use "ref" attribute. This is pass by reference.
+*In case if you want to pass by Object, we can use inner-bean tag in property/constructor-arg tag.
 	
 If you want to pass array values then you can use "list" tag in between property/constructor-arg, this list tag
 	can have multiple value tags or multiple ref tag.
