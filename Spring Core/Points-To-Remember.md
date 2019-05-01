@@ -186,7 +186,7 @@ LoggerFactory.getLogger(); //returns Logger class object.
 * annotation-approach: @PostConstruct & @PreDestroy on methods, To use this you need to initialize 
 	CommonAnnotationBeanPostProcessor class.
 
-**Lookup-method DI**
+## Lookup-method DI
 Lets say you have an abstract class with abstract method. 
 ```
 abstract class Car {
@@ -199,25 +199,23 @@ abstract class Car {
 <bean id="e" class="Engine">
 ```
 
-So for this IOC container will create an implementation class for Car & provide the implementation to getEngine method
+* So for this IOC container will create an implementation class for Car & provide the implementation to getEngine method
 & that getEngine method will simply return passed "e" reference.
 
-So this is how you can provide implementation for abstract class, interface & concrete classes as well or override
+* This is how you can provide implementation for abstract class, interface & concrete classes as well or override
 	implementation. For this feature we need cglib dependency.
 
-Method Replacer, lets you create classes where you can overwrite only specific methods, without modifying original
+* Method Replacer, lets you create classes where you can overwrite only specific methods, without modifying original
 	class. IOC internally generates Proxy classes.
 
-@Resource(provided by JDK) performs dependency injection but it checks byName first. 
-while @Autowired(provided by Spring) performs dependency injection byType first.
+* **@Resource(provided by JDK)** performs dependency injection but it checks byName first, while **@Autowired(provided by Spring)** performs dependency injection byType first.
 
-@Inject(provided by JDK) performs dependency injection but it checks byType only.
-So we need to use @Qualifier along if there are multiple dependencies of same type.
-This is similar to @Autowired.
+* **@Inject(provided by JDK)** performs dependency injection but it checks byType only. So we need to use @Qualifier along if there are multiple dependencies of same type. This is similar to @Autowired.
 
-@Named (provided by J2EE) is similar to @Component(provided by Spring).
+* **@Named (provided by J2EE)** is similar to @Component(provided by Spring).
 
-** Load properties from a file into a classes - Use PropertyPlaceHolderConfigurer as below
+## Load properties from a file into a classes 
+* Use PropertyPlaceHolderConfigurer as below
 ```
 db.properties
 	url=http://abc.com:3306/mysql
