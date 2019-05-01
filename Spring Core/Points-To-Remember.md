@@ -238,27 +238,28 @@ spring.xml
 </beans>
 ```
 
-** I18n
+## I18n or Internationalization
 ** Core Java provides ResourceBundle class for this.
 ```
-Locale l = new Locale("telugu");
-ResourceBundle rb = ResourceBundle.getBundle("data"); // so this will search for data_telugu.properties
-String str = rb.getString("hello"); //this will search hello key translation in telugu from data_telugu.properties
+Locale l = new Locale("te-IN");
+ResourceBundle rb = ResourceBundle.getBundle("data"); // so this will search for data_te.properties
+String str = rb.getString("hello"); 
+//this will search hello key translation in telugu from data_te.properties
 ```
 
-** Application Context provides similar support
-ResourceBundleMessageSource
+**Application Context provides similar support ResourceBundleMessageSource**
 ```
-	<bean id="messageSource" class="ResourceBundleMessageSource">
-		<property name="basename" value="resources/data"/> //depending on your locale it will search for data-hi.properties,		
-	</bean>
-	
-	Locale locale = new Locale("en-US");
-	ApplicationContext context = new ClassPathXMLApplicationContext("spring.xml");
-	String value = context.getMessage("label", null, locale);
+//depending on your locale it will search for data-hi.properties
+<bean id="messageSource" class="ResourceBundleMessageSource">
+	<property name="basename" value="resources/data"/> 		
+</bean>
+
+Locale locale = new Locale("en-US");
+ApplicationContext context = new ClassPathXMLApplicationContext("spring.xml");
+String value = context.getMessage("label", null, locale);
 ```
 
-** Container Listeners
+## Container Listeners
 * ApplicationListener interface is provided to handle events like IOC start, IOC stop, IOC refresh & IOC close.
 	These are executed when container starts, stops, closes & refreshes.
 ```
