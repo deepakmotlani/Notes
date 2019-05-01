@@ -239,7 +239,7 @@ spring.xml
 ```
 
 ## I18n or Internationalization
-** Core Java provides ResourceBundle class for this.
+* Core Java provides ResourceBundle class for this.
 ```
 Locale l = new Locale("te-IN");
 ResourceBundle rb = ResourceBundle.getBundle("data"); // so this will search for data_te.properties
