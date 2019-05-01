@@ -176,3 +176,100 @@ LoggerFactory.getLogger(); //returns Logger class object.
 <bean id="sessionFactory" class="[actual-package].SessionFactory"/>
 <bean id="session" factory-bean="sessionFactory" factory-method="openSession" />
 ```
+
+## Life Cycle Methods
+* xml-approach: bean tag has init-method="" & destroy-method="" which are called when creating & destroying beans.
+	If we have the same name of init & destroy method in all beans you can specify default-init-method &
+	default-destroy-method on beans tag. So you don't have specifyeach of them individually.
+* programmatic-approach: You can implement InitializingBean & DisposableBean interface which contains afterPropertiesSet
+	& destroy() method.
+* annotation-approach: @PostConstruct & @PreDestroy on methods, To use this you need to initialize 
+	CommonAnnotationBeanPostProcessor class.
+
+**Lookup-method DI**
+Lets say you have an abstract class with abstract method. 
+```
+abstract class Car {
+	abstract Engine getEngine();
+}
+
+<bean id="c" class="Car">
+	<lookup-method name="getEngine" bean="e"/>
+</bean>
+<bean id="e" class="Engine">
+```
+
+So for this IOC container will create an implementation class for Car & provide the implementation to getEngine method
+& that getEngine method will simply return passed "e" reference.
+
+So this is how you can provide implementation for abstract class, interface & concrete classes as well or override
+	implementation. For this feature we need cglib dependency.
+
+Method Replacer, lets you create classes where you can overwrite only specific methods, without modifying original
+	class. IOC internally generates Proxy classes.
+
+@Resource(provided by JDK) performs dependency injection but it checks byName first. 
+while @Autowired(provided by Spring) performs dependency injection byType first.
+
+@Inject(provided by JDK) performs dependency injection but it checks byType only.
+So we need to use @Qualifier along if there are multiple dependencies of same type.
+This is similar to @Autowired.
+
+@Named (provided by J2EE) is similar to @Component(provided by Spring).
+
+** Load properties from a file into a classes - Use PropertyPlaceHolderConfigurer as below
+```
+db.properties
+	url=http://abc.com:3306/mysql
+	driver=abc.class
+	user=deepak
+	password=abc
+
+spring.xml	
+<beans>
+	<beans id="pphc" class="PropertyPlaceHolderConfigurer">
+		<property name="location" value="db.properties"/>
+	</beans>
+	
+	<bean id="dao" class="ABCDao">
+		<property name="url" value="${url}"/>
+		<property name="driver" value="${driver}"/>
+		<property name="user" value="${user}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+</beans>
+```
+
+** I18n
+** Core Java provides ResourceBundle class for this.
+```
+Locale l = new Locale("telugu");
+ResourceBundle rb = ResourceBundle.getBundle("data"); // so this will search for data_telugu.properties
+String str = rb.getString("hello"); //this will search hello key translation in telugu from data_telugu.properties
+```
+
+** Application Context provides similar support
+ResourceBundleMessageSource
+```
+	<bean id="messageSource" class="ResourceBundleMessageSource">
+		<property name="basename" value="resources/data"/> //depending on your locale it will search for data-hi.properties,		
+	</bean>
+	
+	Locale locale = new Locale("en-US");
+	ApplicationContext context = new ClassPathXMLApplicationContext("spring.xml");
+	String value = context.getMessage("label", null, locale);
+```
+
+** Container Listeners
+* ApplicationListener interface is provided to handle events like IOC start, IOC stop, IOC refresh & IOC close.
+	These are executed when container starts, stops, closes & refreshes.
+```
+class IOCStartListener implements ApplicationListener<ContextStartEvent> {
+	public void onApplicationEvent(ContextStartEvent contextStartEvent) {
+	}
+}
+
+<beans>
+	<bean id="startListener" class="IOCStartListener"/>
+</beans>
+```
