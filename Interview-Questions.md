@@ -30,3 +30,6 @@ No, because method overriding is used to achieve runtime polymorphism and data m
 * https://www.javatpoint.com/corejava-interview-questions
 
 How Hashmap works - https://www.geeksforgeeks.org/internal-working-of-hashmap-java/
+
+**Why is String class immutable in Java**?
+Because String are stored in String constant pool which may be shared b/w multiple clients, so if 1 client change the value of String, then it may impact other clients as well.
