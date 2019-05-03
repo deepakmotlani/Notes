@@ -35,3 +35,4 @@
       const d = {e:5, ...a}
       so value of d is {b:1, c:2, e:5}
     ```
+![Find many more features here](http://es6-features.org/#GeneratorFunctionIteratorProtocol)
