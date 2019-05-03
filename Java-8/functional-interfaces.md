@@ -17,6 +17,27 @@ Annotate methods with @FunctionalInterface, at first, this annotation seems to b
 
 We can also add default methods to Functional Interface.
 
+## Lambda Expression
+
+Another benefit of using Funcational Interface is possibility to use Lambda Expressions to instantiate them.
+
+```
+Runnable r = new Runnable() {
+    public void run(){
+        System.out.println('I am runnable');
+    }
+}
+
+## Using lambda expression it can be written as
+Runnable r = () -> {
+    System.out.println('I am runnable');
+}
+
+## if there is just 1 statement you don't need curly braces as well
+Runnable r = () -> System.out.println('I am runnable');
+
+```
+
 ## Method References
 You can create lambda expression to create anonymous methods. Sometimes, however, a lambda expression does nothing but call an existing method. Method references enable you to do this, they are compact & easy to read.
 
