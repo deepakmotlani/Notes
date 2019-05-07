@@ -34,13 +34,13 @@ web.xml
 	</servlet-mapping>
 </web-app>
 ```
-* Possible url-pattern
+* **Possible url-pattern**
 1. complete-path
 2. /*, all requests
 3. /*.ext, requests with ext will map, 
 	ex: Struts has /*.do, /*.action & for spring we can use any extenstions like /*.htm etc
 
-* Write Controller, using programmatic way, we need to extend eiter of these
+* **Write Controller, using programmatic way, we need to extend eiter of these**
 1. Controller interface
 2. AbstractController
 3. AbstractCommandController
@@ -69,7 +69,7 @@ dispatcher-servlet.xml //using url-pattern it identifies servlet name
 </beans>
 
 ```
-Spring MVC lifecycle -
+## Spring MVC lifecycle -
 1. Request comes to DisptacherServlet, DisptacherServlet then calls HandlerMapping to identify which controller is
 	to be called. 
 2. Now DispatcherServlet creates Controller object & calls the controller method & passes the request & response object.
