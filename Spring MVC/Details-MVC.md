@@ -33,7 +33,7 @@ web.xml
 		<url-pattern>/login</url-pattern> // or you can say /* to map all requests
 	</servlet-mapping>
 </web-app>
-
+```
 * Possible url-pattern
 1. complete-path
 2. /*, all requests
