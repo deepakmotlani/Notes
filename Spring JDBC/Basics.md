@@ -48,7 +48,7 @@ We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder
 
 **We can use following Datasource implementations are available** -
 1. Apache gave BasicDataSource. 
-   While creating BasicDataSource object we can set url, password, driver, maximum number of connections, max idle time etc. This internally creates datasource pool & keeps maximum number of connections & we can get connection from connection pool.
+   While creating BasicDataSource object we can set url, password, driver, maximum number of connections, max idle time etc. This internally creates datasource pool & keeps maximum number of connections & we can get connection from connection pool. Then you can get connections from basicDataSource using getConnection method
 2. Mchance gave ComboPooledDataSource.
 3. Spring gave DriverManagerDataSource.
 4. WebLogic gave WebLogicDataSource. 
