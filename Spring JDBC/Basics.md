@@ -44,11 +44,12 @@ We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder
 
 ## Important Points to remember
 1. You should always use connection pools to get the database connection object instead of directly getting database connection. Advantage of doing so is that we can make sure that we are opening connections upto certain limit.
-2. You should have interface implementation for DAO so that if underlying technique i.e. JDBC, Hiberante etc. get changed, it should not impact callers. Also we should use modal objects in method signatures of DAO, instead of individual parameters i.e. id, name, email etc.
+2. If we try to open more than specicified number of connections from database, it will start throwing exceptions.
+3. You should have interface implementation for DAO so that if underlying technique i.e. JDBC, Hiberante etc. get changed, it should not impact callers. Also we should use modal objects in method signatures of DAO, instead of individual parameters i.e. id, name, email etc.
 
 **We can use following Datasource implementations are available** -
 1. Apache gave BasicDataSource. 
-   While creating BasicDataSource object we can set url, password, driver, maximum number of connections, max idle time etc. This internally creates datasource pool & keeps maximum number of connections & we can get connection from connection pool. Then you can get connections from basicDataSource using getConnection method
+   While creating BasicDataSource object we can set url, password, driver, maximum number of connections, max idle time etc. This internally creates datasource pool & keeps maximum number of connections & we can get connection from connection pool. Then you can get connections from basicDataSource using getConnection method.
 2. Mchance gave ComboPooledDataSource.
 3. Spring gave DriverManagerDataSource.
 4. WebLogic gave WebLogicDataSource. 
