@@ -42,3 +42,16 @@ Query for populating multiple domain objects
 
 We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder**
 
+## Important Points to remember
+1. You should always use connection pools to get the database connection object instead of directly getting database connection. Advantage of doing so is that we can make sure that we are opening connections upto certain limit.
+2. You should have interface implementation for DAO so that if underlying technique i.e. JDBC, Hiberante etc. get changed, it should not impact callers. Also we should use modal objects in method signatures of DAO, instead of individual parameters i.e. id, name, email etc.
+
+**We can use following Datasource implementations are available** -
+1. Apache gave BasicDataSource. 
+   While creating BasicDataSource object we can set url, password, driver, maximum number of connections, max idle time etc. This internally creates datasource pool & keeps maximum number of connections & we can get connection from connection pool.
+2. Mchance gave ComboPooledDataSource.
+3. Spring gave DriverManagerDataSource.
+4. WebLogic gave WebLogicDataSource. 
+& many many more implementations are available.
+
+## Internally connection pool maintain 2 maps used & unused connections, when you call get connection method, it is placed in used map, when you close the connection it will put it in unused connections & it doesn't actually returns to database, it is just returned to connection pool. Connection Pool creates all the connections at application startup & releases them at application shutdown.
