@@ -58,3 +58,5 @@ We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder
 **Internally connection pool maintain 2 maps used & unused connections, when you call get connection method, it is placed in used map, when you close the connection it will put it in unused connections & it doesn't actually returns to database, it is just returned to connection pool. Connection Pool creates all the connections at application startup & releases them at application shutdown.**
 
 **So it is recommended to use datasources to get database connections instead of directly opening connections.**
+
+We can create Jdbc Template class object by using datasource, Jdbc Template has a seeter method for datasource.
