@@ -128,3 +128,5 @@ If the second level cache contains data for a given Id, it re-hydrates the entit
 **@Id** annotation marks the identifier for this entity.
 
 **@Column** annotation specifies the details of the column for this property or field. If @Column annotation is not specified, property name will be used as the column name by default.
+
+**We should hibernateTemplate object to perform database transactions, we need to create the hibernateTemplate from sessionFactory, this hibernateTemplate object takes care of everything i.e. opening & closing connections. we simply write hibernateTemplate.save or update etc. Session Factory manages the pools of sessions internally. **
