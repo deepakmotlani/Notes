@@ -59,4 +59,9 @@ We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder
 
 **So it is recommended to use datasources to get database connections instead of directly opening connections.**
 
-We can create Jdbc Template class object by using datasource, Jdbc Template has a seeter method for datasource.
+We can create Jdbc Template class object by using datasource, Jdbc Template has a setter method for datasource. JdbcTemplate methods internally manages opening & closing connection.
+
+**Difference b/w Plain JDBC & Spring JDBC**
+| Plain JDBC | Spring JDBC |
+| ---------- | ----------- |
+| A | B |
