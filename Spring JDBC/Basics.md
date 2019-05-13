@@ -62,6 +62,9 @@ We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder
 We can create Jdbc Template class object by using datasource, Jdbc Template has a setter method for datasource. JdbcTemplate methods internally manages opening & closing connection.
 
 **Difference b/w Plain JDBC & Spring JDBC**
+
 | Plain JDBC | Spring JDBC |
 | ---------- | ----------- |
-| A | B |
+| It throws compile time exceptions i.e. SQL exceptions | It throws runtime exception i.e. DataAccess exceptions |
+| Developer should close connections | Developer don't have to close connections |
+| For all operations this returns resultset, we have to iterate resultset to get data | This provides various generic methods for ex: queryForInt to get integer data|
