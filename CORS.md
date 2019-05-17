@@ -54,10 +54,10 @@ extra "preflight" request to determine whether they have permission to perform t
 ## Spring MVC & CORS
 Spring MVC provides **@CrossOrigin** annotation at method & global level. By default @CrossOrigin allows all origins, all headers & HTTP methods specified in @RequestMapping & maxAge of 30mins. You can override default CORS configuration by providing values to annotation attributes -
 * origins - list of all allowed origins, its values is placed in Access-Control-Allow-Origin header of both pre-flight response & actual response.
-	* - means all origins are allowed
+	'*' - means all origins are allowed
 	If undefined, all origins are allowed
 * allowedHeaders - List of request headers that can be used during the actual request. Value is used in preflight’s response header Access-Control-Allow-Headers.
-	* – means that all headers requested by the client are allowed.
+	'*' – means that all headers requested by the client are allowed.
 	If undefined, all requested headers are allowed.
 * methods - List of supported HTTP request methods. If undefined, methods defined by RequestMapping annotation are used.
 * allowCredentials - It determine whether browser should include any cookies associated with the request.
