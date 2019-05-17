@@ -8,18 +8,19 @@ CORS defines a way in which browser & server can interact to determine whether o
 Ex - Suppose I visit a webpage www.example.com on my browser, now this web-page tries to make a cross-origin
 		request to www.userservice.com to fetch user data
 
-	1. Browser sends a OPTIONS request to www.userservice.com containing the domain that originally served the page.
-	```
-		Origin: www.example.com		
-	```
-	2. Server at to www.userservice.com may respond to browser with:
-	```
-		Access-Control-Allow-Origin: www.example.com //indicating that it allows CORS with www.example.com
-	```
-	```
-		Access-Control-Allow-Origin: * //indicating that it allows CORS with all domains
-	```
-	or an Error Page, indicating it doesn't allow cross-origin requests.
+1. Browser sends a OPTIONS request to www.userservice.com containing the domain that originally served the page.
+	
+```
+Origin: www.example.com		
+```
+2. Server at to www.userservice.com may respond to browser with:
+```
+Access-Control-Allow-Origin: www.example.com //indicating that it allows CORS with www.example.com
+```
+```
+Access-Control-Allow-Origin: * //indicating that it allows CORS with all domains
+```
+or an Error Page, indicating it doesn't allow cross-origin requests.
 
 ## Pre flight example
 When performing certain types of cross-domain Ajax requests, modern browsers that support CORS will insert an 
