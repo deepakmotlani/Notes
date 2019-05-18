@@ -109,8 +109,8 @@ concurrentMap.put("3", "three");
 ```
 
 6. **Atomic Objects** - is another of acheiving thread safety, using Atomic classes provided by Java i.e.
-	AtomicInteger, AtomicLong, AtomicBoolean & AtomicReference in java.util.concurrent.atomic package. Atomic classes allow us to perform multithreading
-	operations, which are thread safe, without using synchronization.
+	AtomicInteger, AtomicLong, AtomicBoolean & AtomicReference in java.util.concurrent.atomic package. 
+	Atomic classes allow us to perform multithreading operations, which are thread safe, without using synchronization.
 ```
 public class Counter {
      
@@ -125,7 +125,7 @@ public class Counter {
     }
 }
 ```
-If we 2 thread execute this code simultaneously, in theory the value of counter will be 2, but we can't e sure of
+If we 2 thread execute this code simultaneously, in theory the value of counter will be 2, but we can't be sure of
 result. But if we can make integer atomic as below
 ```
 public class AtomicCounter {
@@ -169,5 +169,110 @@ public class SafeCounterWithoutLock {
             }
         }
     }
+}
+```
+
+7. Synchronized Methods - only 1 thread can enter any synchronized method for an object. They rely mainly on 
+	intrinsic locks or monitor locks.
+```
+public synchronized void incrementCounter() {
+    counter += 1;
+}
+```
+
+8. Synchronized Statements - If we want to synchronize only specific parts of method, or we want to make calls
+	to some methods which are not in our source code, we can do it using synchronized blocks.
+```
+public void incrementCounter() {
+    // additional unsynced operations
+    synchronized(this) {
+        counter += 1; 
+    }
+}
+```
+
+9. Volatile Fields - Even if we used synchronization, class variables might be cached by CPU, so updates to those
+	fields might not be visible to other threads. With volatile we instruct JVM & compiler to store the counter 
+	variable in main memory & read from main memory, instead of CPU cache.
+
+10 Extrinsic Locks - In this we use external entity to enforce excelusive access to resource. With intrinsic 
+locking, where synchronized methods and blocks rely on the this reference, an attacker could cause a deadlock by 
+acquiring the intrinsic lock and triggering a denial of service (DoS) condition. Unlike its intrinsic counterpart, 
+an extrinsic lock makes use of a private entity, which is not accessible from the outside. 
+This makes it harder for an attacker to acquire the lock and cause a deadlock.
+```
+public class ExtrinsicLockCounter {
+ 
+    private int counter = 0;
+    private final Object lock = new Object();
+     
+    public void incrementCounter() {
+        synchronized(lock) {
+            counter += 1;
+        }
+    }
+     
+    // standard getter
+     
+}
+```
+
+10. Reentrant Locks - With intrinsic locks, the lock acquisition model is rather rigid: one thread acquires the lock, 
+then executes a method or code block, and finally releases the lock, so other threads can acquire it and access the 
+method. There’s no underlying mechanism that checks the queued threads and gives priority access to the longest 
+waiting threads. ReentrantLock instances allow us to do exactly that, hence preventing queued threads from 
+suffering some types of resource starvation.
+```
+public class ReentrantLockCounter {
+ 
+    private int counter;
+    private final ReentrantLock reLock = new ReentrantLock(true);
+     
+    public void incrementCounter() {
+        reLock.lock();
+        try {
+            counter += 1;
+        } finally {
+            reLock.unlock();
+        }
+    }
+     
+    // standard constructors / getter
+     
+}
+```
+
+11. Read/Write Locks - A ReadWriteLock lock actually uses a pair of associated locks, one for read-only operations 
+and other for writing operations. As a result, it’s possible to have many threads reading a resource, 
+as long as there’s no thread writing to it. Moreover, the thread writing to the resource will prevent other 
+threads from reading it.
+```
+public class ReentrantReadWriteLockCounter {
+     
+    private int counter;
+    private final ReentrantReadWriteLock rwLock = new ReentrantReadWriteLock();
+    private final Lock readLock = rwLock.readLock();
+    private final Lock writeLock = rwLock.writeLock();
+     
+    public void incrementCounter() {
+        writeLock.lock();
+        try {
+            counter += 1;
+        } finally {
+            writeLock.unlock();
+        }
+    }
+     
+    public int getCounter() {
+        readLock.lock();
+        try {
+            return counter;
+        } finally {
+            readLock.unlock();
+        }
+    }
+ 
+   // standard constructors
+    
 }
 ```
