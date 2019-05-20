@@ -73,3 +73,7 @@ public class Consumer implements Runnable{
     }
 }
 ```
+
+## Concurrent Map
+This is an interface in java.util.concurrent package which is capable of handling concurrent access i.e. puts & gets on it. One of the implementation is ConcurrentHashMap which offers better concurreny than HashTable. ConcurrentHashMap doesn't lock the map when you are
+reading it, ConcurrentHashMap doesn't lock the entire map while you are writing to it, it internally locks only parts of map.
