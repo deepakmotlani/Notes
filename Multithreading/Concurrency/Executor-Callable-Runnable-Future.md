@@ -3,9 +3,22 @@
 **Executor Service**
 ExecutorService is a construct that allows you to pass your task to be executed by a thread asynchronously. It 
 creates & maintains a pool of threads for executing submitted tasks. It also manages a queue internally for 
-awaiting tasks until the thread becomes available. You can instantiate ExecutorService by 2 methods,
+awaiting tasks until the thread becomes available. Basically there are 2 implementations of ExecutorService i.e. **ThreadPoolExecutor** & **ScheduledExecutorService**, You can instantiate ThreadPoolExecutor by 2 methods,
 1. Manually by passing individual parameters i.e. corePoolSize, maxPoolSize, keepAliveTime, workerQueue etc.
 2. Executors static factory methods i.e. Executors.newFixedThreadPool(10) or Executors.getNewSingleThreadExecutor()
+
+You can instantiate ScheduledExecutorService by using below steps
+```
+ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
+
+ScheduledFuture scheduledFuture = scheduledExecutorService.schedule(new Callable() {
+        public Object call() throws Exception {
+            System.out.println("Executed!");
+            return "Called!";
+        }
+    }, 5, TimeUnit.SECONDS);
+```
+First a ScheduledExecutorService is created with 5 threads in. Then an anonymous implementation of the Callable interface is created and passed to the schedule() method. The two last parameters specify that the Callable should be executed after 5 seconds.
 
 ExecutorService also provides shutdown() method, when called it will allow previously submitted tasks to be executed
 before terminating, while shutdownnow(), will prevent waiting tasks to start & currently excuting task to stop.
