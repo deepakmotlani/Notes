@@ -172,7 +172,7 @@ public class SafeCounterWithoutLock {
 }
 ```
 
-7. Synchronized Methods - only 1 thread can enter any synchronized method for an object. They rely mainly on 
+7. **Synchronized Methods** - only 1 thread can enter any synchronized method for an object. They rely mainly on 
 	intrinsic locks or monitor locks.
 ```
 public synchronized void incrementCounter() {
@@ -180,7 +180,7 @@ public synchronized void incrementCounter() {
 }
 ```
 
-8. Synchronized Statements - If we want to synchronize only specific parts of method, or we want to make calls
+8. **Synchronized Statements** - If we want to synchronize only specific parts of method, or we want to make calls
 	to some methods which are not in our source code, we can do it using synchronized blocks.
 ```
 public void incrementCounter() {
@@ -191,11 +191,11 @@ public void incrementCounter() {
 }
 ```
 
-9. Volatile Fields - Even if we used synchronization, class variables might be cached by CPU, so updates to those
+9. **Volatile Fields** - Even if we used synchronization, class variables might be cached by CPU, so updates to those
 	fields might not be visible to other threads. With volatile we instruct JVM & compiler to store the counter 
 	variable in main memory & read from main memory, instead of CPU cache.
 
-10 Extrinsic Locks - In this we use external entity to enforce excelusive access to resource. With intrinsic 
+10. **Extrinsic Locks** - In this we use external entity to enforce excelusive access to resource. With intrinsic 
 locking, where synchronized methods and blocks rely on the this reference, an attacker could cause a deadlock by 
 acquiring the intrinsic lock and triggering a denial of service (DoS) condition. Unlike its intrinsic counterpart, 
 an extrinsic lock makes use of a private entity, which is not accessible from the outside. 
@@ -217,9 +217,9 @@ public class ExtrinsicLockCounter {
 }
 ```
 
-10. Reentrant Locks - With intrinsic locks, the lock acquisition model is rather rigid: one thread acquires the lock, 
+11. **Reentrant Locks** - With intrinsic locks, the lock acquisition model is rather rigid: one thread acquires the lock, 
 then executes a method or code block, and finally releases the lock, so other threads can acquire it and access the 
-method. There’s no underlying mechanism that checks the queued threads and gives priority access to the longest 
+method. Thereâ€™s no underlying mechanism that checks the queued threads and gives priority access to the longest 
 waiting threads. ReentrantLock instances allow us to do exactly that, hence preventing queued threads from 
 suffering some types of resource starvation.
 ```
@@ -242,9 +242,9 @@ public class ReentrantLockCounter {
 }
 ```
 
-11. Read/Write Locks - A ReadWriteLock lock actually uses a pair of associated locks, one for read-only operations 
-and other for writing operations. As a result, it’s possible to have many threads reading a resource, 
-as long as there’s no thread writing to it. Moreover, the thread writing to the resource will prevent other 
+12. **Read/Write Locks** - A ReadWriteLock lock actually uses a pair of associated locks, one for read-only operations 
+and other for writing operations. As a result, itâ€™s possible to have many threads reading a resource, 
+as long as thereâ€™s no thread writing to it. Moreover, the thread writing to the resource will prevent other 
 threads from reading it.
 ```
 public class ReentrantReadWriteLockCounter {
