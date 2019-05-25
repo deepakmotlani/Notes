@@ -66,3 +66,19 @@ Now what is happening in b/g is SpringApplication.run method does following
  * Performs classpath scan i.e. Service, Repository, Controller classes.
  * Starts Tomcat server.
 That's why we say Spring Boot creates standalone application.
+
+Parent Project version specifies which version of each dependency to use internally.
+
+## Another way of creating spring boot applications is using Spring Initializer i.e. http://start.spring.io webpage. 
+
+Goto this webpage & select the boot version, type of project i.e. maven/gradle, then mention the groupId &
+artifactId & application name. You can also specify the dependencies you need by simple checkbox selection & then
+click download, it should download a zip for you. Extract the zip & import the project in your IDE.
+
+## Another way of creating spring boot application is by using Spring Boot CLI. 
+
+We can download the CLI zip from spring official website, extract it & run. This is not very popuplar & is mainly
+used for woking with groovy.
+
+## Another way is using STS IDE
+Create Spring Starter Project which is similar to spring initializer, but it downloads & extracts the project.
