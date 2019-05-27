@@ -72,4 +72,6 @@ SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder()
 4. **Phantom Reference** - tough to understand this.
 
 
+https://dzone.com/articles/java-memory-management
+
 
