@@ -37,10 +37,10 @@ referring it via stringBuilder reference, which goes to stack.
 If we look at the picture closely, we will see that there are different kind of references to objects of heap. This is
 because we have different types of references i.e. **strong**, **weak**, **soft** & **phantom** references.
 
-1. Strong Reference - In the example above stringBuilder reference has a Strong reference to object in heap. 
+1. **Strong Reference** - In the example above stringBuilder reference has a Strong reference to object in heap. 
 Object in heap can't be garabage collected while there is a strong reference to object.
 
-2. Weak Reference - whenever we have a weak reference to an object, it is most likely to be garbage collected in
+2. **Weak Reference** - whenever we have a weak reference to an object, it is most likely to be garbage collected in
 the next garbage collection process.
 
 This is how we create it -
@@ -61,11 +61,15 @@ private static class Entry<K,V> extends WeakReference<Object> implements Map.Ent
 Once a particular key is garabage collected, the entire object is garabage collected & entire entry is removed from 
 map.
 
-3. Soft Reference - These type is used for memory-sensetive scenarios, since these will be garbage collected only
+3. **Soft Reference** - These type is used for memory-sensetive scenarios, since these will be garbage collected only
 when application is running low on memory. So until there is sufficient memory available GC will not touch soft refernce.
 Java also guarantee that all soft references will be garbage collected before throwing OutOfMemory error.
 
 ```
 SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder());
 ```
+
+4. **Phantom Reference** - tough to understand this.
+
+
 
