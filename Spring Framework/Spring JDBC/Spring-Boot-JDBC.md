@@ -15,4 +15,4 @@ Now you can simply **autowire jdbcTemplate** object in the repository & it shoul
 
 **If you want to create your **jdbcTemplate** & **dataSource**, you can use following configurations**
 
-![JDBC Config](https://github.com/deepakmotlani/Notes/blob/master/Spring%20JDBC/images/jdbc-config.PNG)
+![JDBC Config](https://github.com/deepakmotlani/Notes/blob/master/Spring%20Framework/Spring%20JDBC/images/jdbc-config.PNG)
