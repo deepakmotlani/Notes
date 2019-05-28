@@ -1,5 +1,5 @@
 ### Spring MVC Architecture
-![Spring MVC](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/MVC-basics-1.PNG)
+![Spring MVC](https://github.com/deepakmotlani/Notes/blob/master/Spring%20Framework/Spring%20MVC/images/MVC-basics-1.PNG)
 
 ## Following is the sequence of events corresponding to an incoming HTTP request to DispatcherServlet −
 
@@ -24,7 +24,7 @@ In Spring Web applications there are 2 types of containers, each of which is con
 
 **Application Context** is container initialized by **ContextLoaderListener** or **ContextLoaderServlet** in web.xml, & this is how it is configured.
 
-![Context Loader](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/web-xml-context-loader.PNG)
+![Context Loader](https://github.com/deepakmotlani/Notes/blob/master/Spring%20Framework/Spring%20MVC/images/web-xml-context-loader.PNG)
 
 In the above configuration, I am asking spring to load all files that match -context.xml & create an Application Context from it. This context may contain-
 1. Middle-tier transaction services
@@ -34,7 +34,7 @@ In the above configuration, I am asking spring to load all files that match -con
 
 **Web Application Context** is the child context of application context. Each DispatcherServlet defined in Spring web application will have an associated web Application Context. This is how we initialize it.
 
-![Dispatch Servlet](https://github.com/deepakmotlani/Notes/blob/master/Spring%20MVC/images/web-xml-dispatcher-servlet.PNG)
+![Dispatch Servlet](https://github.com/deepakmotlani/Notes/blob/master/Spring%20Framework/Spring%20MVC/images/web-xml-dispatcher-servlet.PNG)
 
 You should also specify the servlet-mapping tag to map the url-pattern which this servlet would handle. 
 Specifying init-param in Dispatcher servlet is optional, if you don't specify it would take the contextConfigLocation as [servlet-name]-servlet.xml. This application context created is specific to this particular web-application-context.
