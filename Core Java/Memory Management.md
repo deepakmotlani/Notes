@@ -72,6 +72,44 @@ SoftReference<StringBuilder> reference = new SoftReference<>(new StringBuilder()
 4. **Phantom Reference** - tough to understand this.
 
 
+## How are Strings referenced
+String in java is immutable, that is every time you update the value of String, it internally creates new object in 
+heap. For String java manages String pool in memory. 
+
+```
+public static void main(String[] args) {
+	String literal1 = "abc";
+	String literal2 = "abc";
+	System.out.println("Are string literals same - " + (literal1 == literal2));
+	
+	String object1 = new String("abc");
+	String object2 = new String("abc");
+	System.out.println("Are string objects same - " + (object1 == object2));
+	
+	String object3 = new String("def");
+	String object4 = "def";
+	System.out.println("Are string object & literal same - " + (object3 == object4));
+	
+	String object5 = new String("ghi").intern();
+	String object6 = "ghi";
+	System.out.println("Are string object & literal same after intern - " + (object5 == object6));
+	
+	String object7 = new String("jkl").intern();
+	String object8 = new String("jkl");
+	System.out.println("Are string objects same after intern - " + (object7 == object8));
+}
+```
+
+Output 
+```
+Are string literals same - true
+Are string objects same - false
+Are string object & literal same - false
+Are string object & literal same after intern - true
+Are string objects same after intern - false
+```
+
+Class level variables, static variables, perm space
 https://dzone.com/articles/java-memory-management
 
 
