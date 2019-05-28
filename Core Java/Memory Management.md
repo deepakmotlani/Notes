@@ -123,6 +123,6 @@ size & that's why we no longer encounter OutOfMemory error,  while PermGen had a
 Once classes are loaded in PermGen space, they can't be unloaded until the JVM is shutdown - thus called Permanent
 Generation. With MetaSpace classes may be loaded & unloaded during lifespan of JVM.
 
-String Constant pool is also a part of Java Heap.
+**String Constant pool is also a part of Java Heap.**
 
 
