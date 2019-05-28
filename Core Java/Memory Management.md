@@ -5,7 +5,7 @@ automatic memory management, which runs garbage collector in b/g to cleanup unus
 it doesn't guarantee anything. So knowing this is important, as it gives you advantage of writing high-performance &
 optimized programs that will never crash with an OutOfMemory error.
 
-![Java Memory](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/java-memory-1.jpg)
+![Java Memory](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/java-memory-1.jpg)
 
 **Generally memory is divided in 2 main parts**
 1. Stack
