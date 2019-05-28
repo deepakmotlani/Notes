@@ -1,7 +1,7 @@
 ## Cyclic Barrier
 Its kind of checkpoint where we want all the threads to reach first & then proceed. So if we have 2 such cyclic barriers it would look like below. So basically we want all out threads to stop at barrier 1 until all threads reach there & then proceed & then wait at barrier 2 until all thread reach there & then proceed.
 
-![Cyclic Barrier](https://github.com/deepakmotlani/Notes/blob/master/Multithreading/images/cyclic-barrier.png)
+![Cyclic Barrier](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/Multithreading/images/cyclic-barrier.png)
 
 ```
 /*Creating cyclic barrier, specifying that 2 threads will wait at barrier.*/
