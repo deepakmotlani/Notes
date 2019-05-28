@@ -117,7 +117,7 @@ fields, methods of the class & constant pool are stored.
 
 You can specify initial & maximum sizes for PermGen & MetaSpace size.
 
-**Difference b/w PermGen & MetaSpace**
+### Difference b/w PermGen & MetaSpace
 MetaSpace by default auto increases its size(if not restricted with -XX:MaxMetaspaceSize) & has unlimited maximum
 size & that's why we no longer encounter OutOfMemory error,  while PermGen had a fixed maximum size. 
 Once classes are loaded in PermGen space, they can't be unloaded until the JVM is shutdown - thus called Permanent
