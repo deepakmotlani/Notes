@@ -109,7 +109,20 @@ Are string object & literal same after intern - true
 Are string objects same after intern - false
 ```
 
-Class level variables, static variables, perm space
-https://dzone.com/articles/java-memory-management
+**Static Methods & Variables** are stored in PERMGEN(i.e. Permanent Generation) space, before Java-8. Its a special
+heap space which is separate from Java Heap space, where JVM keeps track of metadata of classes which are loaded.
+
+In Java-8 they renamed PERMGEN space to METASPACE with subtle differences. METASPACE now is the place where name, 
+fields, methods of the class & constant pool are stored.
+
+You can specify initial & maximum sizes for PermGen & MetaSpace size.
+
+**Difference b/w PermGen & MetaSpace**
+MetaSpace by default auto increases its size(if not restricted with -XX:MaxMetaspaceSize) & has unlimited maximum
+size & that's why we no longer encounter OutOfMemory error,  while PermGen had a fixed maximum size. 
+Once classes are loaded in PermGen space, they can't be unloaded until the JVM is shutdown - thus called Permanent
+Generation. With MetaSpace classes may be loaded & unloaded during lifespan of JVM.
+
+String Constant pool is also a part of Java Heap.
 
 
