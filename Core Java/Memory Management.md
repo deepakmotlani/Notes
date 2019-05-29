@@ -125,4 +125,4 @@ Generation. With MetaSpace classes may be loaded & unloaded during lifespan of J
 
 **String Constant pool is also a part of Java Heap.**
 
-
+**String Builder & String Buffer use dynamic character array & don't use String Constant Pool.**
