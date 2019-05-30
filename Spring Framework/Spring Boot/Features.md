@@ -35,3 +35,9 @@ This is an awesome feature of Spring Boot that helps us seeing what's going insi
 All these information is provided by various endpoints provided by Actuator. But 1 thing dangerous here is that this endpoints are not secure, so we should secure these endpoints using spring security.
 
 ### 4. Spring Boot Initializer
+Spring Boot Initializer provides a web application i.e. https://start.spring.io, where you can create Maven & Gradle projects, project meta-data i.e. group Id, artifact Id, boot version & most importantly all the dependencies needed. Once you are done configuring all these, click Generate Project, which generates a .zip file which will be downloaded, you can extract & import it.
+
+### 5. Spring Boot CLI
+Spring Boot Command Line Interface, is used for quick start with Spring. It can run groovy scripts, & avoids developers to write boiler plate code & focus on business logic.
+
+Provides interface to test & run applications from commnd-prompt. 
