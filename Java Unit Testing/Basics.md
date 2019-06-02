@@ -33,3 +33,13 @@ Mockito also provides a check on the number of calls to method
 ```
 Mockito.verify(calcService, Mockito.times(1)).add(10, 20);
 ```
+
+Mockito also provides a check if a method was never called
+```
+Mockito.verify(calcService, Mockito.never()).subtract(10, 20);
+```
+
+Mockito also provides additional methods to verify
+* atLeast(int min)
+* atLeastOnce()
+* atMost(int max)
