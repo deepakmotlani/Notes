@@ -14,16 +14,21 @@ Using this we specify that for any integer parameters, we want to return 30.
 **Matchers is provided by org.mockito package.**
 * Can't be used in return arguements.
 * Can't be used outside of verification or stubbing.
+* When used, have to be used for all arguements. 
 
 Incorrect example
 ```
-String orMatcher = Mockito.or(Mockito.eq("poppy"), Mockito.endsWith("y"));
+String orMatcher = Matchers.or(Matchers.eq("poppy"), Matchers.endsWith("y"));
 Mockito.verify(mock).analyze(orMatcher);
 ```
 
 Correct example
 ```
-Mockito.verify(mock).analyze(Mockito.or(Mockito.eq("poppy"), Mockito.endsWith("y")));
+Mockito.verify(mock).analyze(Matchers.or(Matchers.eq("poppy"), Matchers.endsWith("y")));
 ```
 
 **Mockito provides additional matchers to implement common logical operations (not, and, or).**
+
+**Matchers provides many more methods**
+* Matchers.any(Class class), can be used for custom classes
+* Matchers.anyDouble(), Matchers.anyFloat() etc. for all the wrapper clasess
