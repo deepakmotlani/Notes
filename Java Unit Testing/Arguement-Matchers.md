@@ -32,3 +32,31 @@ Mockito.verify(mock).analyze(Matchers.or(Matchers.eq("poppy"), Matchers.endsWith
 **Matchers provides many more methods**
 * Matchers.any(Class class), can be used for custom classes
 * Matchers.anyDouble(), Matchers.anyFloat() etc. for all the wrapper clasess
+
+
+## Arguement Captors
+
+This is a recommended way of matching arguements because it makes tests clean & simple.
+
+```
+public class TestClass {
+
+	@Captor
+	private ArgumentCaptor<Integer> integerArgumentCaptor;
+	
+	@Captor
+	private ArgumentCaptor<String> stringArgumentCaptor;
+
+	@Test
+	public void test_getCar() {
+		Mockito.when(workflowService.getCar(Matchers.anyString(), Matchers.eq(1000))).thenReturn("Maruti");
+		
+		String result = workflowController.getName(); //internally calls workflowService.getCar("Audi", 1000)
+		
+		Mockito.verify(workflowService).getCar(stringArgumentCaptor.capture(), integerArgumentCaptor.capture());
+		Assert.assertEquals(result, "Maruti");		
+		Assert.assertEquals((Integer)integerArgumentCaptor.getValue(), (Integer)1000);
+		Assert.assertEquals((String)stringArgumentCaptor.getValue(), "Audi");
+	}
+}
+```
