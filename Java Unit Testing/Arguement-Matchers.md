@@ -26,4 +26,4 @@ Correct example
 Mockito.verify(mock).analyze(Mockito.or(Mockito.eq("poppy"), Mockito.endsWith("y")));
 ```
 
-Mockito provides additional matchers to implement common logical operations (not, and, or)
+**Mockito provides additional matchers to implement common logical operations (not, and, or).**
