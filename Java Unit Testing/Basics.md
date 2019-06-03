@@ -22,6 +22,12 @@ Mockito.when(calcService.add(10, 20)).thenReturn(30);
 ```
 Here we have instrcuted Mockito that when add method is called on calcService with parameters 10 & 20 then return 30.
 
+```
+Mockito.when(calcService.add(10, 20)).thenCallRealMethod(); 
+```
+Here we have instrcuted Mockito that when add method is called on calcService with parameters 10 & 20 
+then call real method.
+
 ### Mockito verify behaviour
 ```
 Mockito.verify(calcService).add(10, 20);
@@ -43,3 +49,64 @@ Mockito also provides additional methods to verify
 * atLeast(int min)
 * atLeastOnce()
 * atMost(int max)
+
+### Mockito exception handling
+```
+@Test(expected = RuntimeException.class)
+public void testAdd(){
+	Mockito.doThrow(new RuntimeException('This is in calcService')).when(calcService).add(10, 20);
+}
+```
+Using doThrow we can have mocks to throw exception when add method is called on calcService.
+We can also specify expected attribute in @Test annotation, which means we expect this test case to throw exception.
+
+
+### Mockito ordered verification
+Mockito provides InOrder class using which we can verify the order in which methods are called on mocks.
+```
+public void testOrder() {
+	calcService.add(10, 20);
+	calcService.subtract(30, 20);
+	
+	InOrder order = Mockito.inOrder(calcService);
+	
+	order.verify(calcService).add(10, 20);
+	order.verify(calcService).subtract(30, 20);
+}
+```
+
+### Mockito spying
+Mockito provides option to call real method on real object.
+```
+@Spy
+private CalcService calcService;
+
+public void addTest() {
+	calcService.add(10, 20);
+}
+```
+
+### Difference b/w Mock & Spy
+When you mock a service & if a method of that service is called, then it returns null, if you don't specify the
+behaviour for method. While in case of Spy the since actual method is called, you don't have to specify the 
+behaviour(i.e. thenReturn).
+
+### Mockito Reset
+Mockito provides a reset capability so that it can be reused.
+```
+@Mock
+private CalcService calcService;
+
+public void testAdd() {
+	calcService.add(10, 20);
+	
+	Mockito.reset(calcService);
+}
+```
+
+### Junit provides following annotations
+* @BeforeClass – Run once before any of the test methods in the class, public static void
+* @AfterClass – Run once after all the tests in the class have been run, public static void
+* @Before – Run before @Test, public void
+* @After – Run after @Test, public void
+* @Test – This is the test method to run, public void
