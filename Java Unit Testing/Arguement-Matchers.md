@@ -60,3 +60,39 @@ public class TestClass {
 	}
 }
 ```
+
+## Mocking void methods
+```
+public class WorkflowService {	
+	public void setName(String name) {
+		System.out.println(name);
+	}
+}
+
+@RunWith(MockitoJUnitRunner.class)
+public class WorkflowServiceTest {
+
+	@Mock
+	private WorkflowService workflowService;
+	
+	@Test
+	public void setName_ShouldPrintName() {
+		Answer<String> answer = new Answer<String>() {
+			public String answer(InvocationOnMock invocationOnMock) {
+				System.out.println(invocationOnMock.getArgumentAt(0, String.class));
+				return null;
+			}
+		};
+		Mockito.doAnswer(answer).when(workflowService).setName("Deepak");
+
+		workflowService.setName("Deepak");
+	}
+}
+
+```
+Mockito.doAnswer(Answer) method can be used to mock void methods & perform tasks. Answer is a functional interface
+provided by mockito, which has a single method answer(InvocationOnMock). So instead of calling actual method it will
+call the implementation provided by us in answer() method.
+
+
+** Remaining testing controllers
