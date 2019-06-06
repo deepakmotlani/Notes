@@ -7,4 +7,4 @@
 
 Each of these phases have lifecycle methods associated as below
 
-(Component Life Cycle)[https://github.com/deepakmotlani/Notes/blob/master/Front-End/React/lifecycle.png]
+[Component Life Cycle](https://github.com/deepakmotlani/Notes/blob/master/Front-End/React/lifecycle.png)
