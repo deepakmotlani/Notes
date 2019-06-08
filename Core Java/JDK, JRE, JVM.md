@@ -7,4 +7,19 @@ It is platform specific s/w that's why we have separate installers for Windows, 
 
 So JDK contains Development Tools & JRE to execute your program.
 
-!(JDK JRE JVM)[https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/JDK_JRE_JVM.jpg]
+![JDK JRE JVM](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/JDK_JRE_JVM.jpg)
+
+## JVM - Java Virtual Machine
+
+Its a spcification where working of JVM is specified. And there are different implementations provided by Sun & other
+companies.
+
+Whenever you run java program, an instance of JVM is created & JVM is responsible for running your program sequentially.
+
+It is contained both in JDk & JRE.
+
+## JRE - Java Runtime Environment
+
+It is an implementation of JVM & provides platform to execute programs. 
+
+JRE doesn't contain any development tools. If you just want to execute a program JRE is suffiecient.
