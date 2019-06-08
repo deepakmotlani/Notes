@@ -72,3 +72,18 @@ public HibernateTransactionManager getTransactionManager(SessionFactory sessionF
 }
 ```
 3. Next you can use @Transactional with your service or dao methods.
+
+**@Transactional** attributes
+* value = alias for transaction manager
+* timeout = int timeout for this transaction
+* rollbackFor = Defines 0 or more exception classes for which transaction should rollback
+* propogation has following possible values
+	* MANDATORY - Supports current transaction, throw exception if none exists.
+	* REQUIRED - Supports current transaction, create new if none exists.
+	* REQUIRES_NEW - Create new transaction & suspend current transaction.
+	* NEVER - Execute non transactionally.
+* isolation has following possible values
+	* READ_COMMITTED - Doesn't allow dirty read
+	* READ_UNCOMMITTED - Allow Dirty reads
+	* REPEATABLE_READ - If row is read twice in transaction, result will be always same
+	* SERIALIZABLE - Performs all transactions in sequence
