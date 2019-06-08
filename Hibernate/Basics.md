@@ -12,6 +12,10 @@ changes will no longer be detected or propogated to db. To Reattach you can use 
 
 * Removed State - Once session.delete operation is performed, the actual deletions happens during session flush time. 
 
+**session flush() method** - this method propogates all the changes we have made in the objects to the database
+by executing the actual queries, but it doesn't commit them to database. Transaction commit method internally calls
+session flush method.
+
 ### Hibernate Config XML file
 ```
 <hibernate-configuration>
