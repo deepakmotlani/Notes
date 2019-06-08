@@ -33,3 +33,7 @@ How Hashmap works - https://www.geeksforgeeks.org/internal-working-of-hashmap-ja
 
 **Why is String class immutable in Java**?
 Because String are stored in String constant pool which may be shared b/w multiple clients, so if 1 client change the value of String, then it may impact other clients as well.
+
+
+**Find nth highest salary in table**
+SELECT salary FROM Employee  ORDER BY Salary DESC LIMIT n-1,1
