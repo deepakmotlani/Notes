@@ -1,5 +1,5 @@
 ### Hibernate Entity State
-
+![Entity State](https://github.com/deepakmotlani/Notes/blob/master/Hibernate/images/hibernateentitystates.png)
 
 ### Hibernate Config XML file
 ```
