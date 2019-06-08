@@ -1,6 +1,17 @@
 ### Hibernate Entity State
 ![Entity State](https://github.com/deepakmotlani/Notes/blob/master/Hibernate/images/hibernateentitystates.png)
 
+* New/Transient State - A newly created object that has been never associated with Hibernate session & is not mapped
+to any table row. It should call persist/save method to move to Managed State.
+
+* Managed/Persisted State - Object is associated with Persistence Context & is mapped to a db table row. Any changes
+made to this object will be detected & automatically propogated to db during session flush time.
+
+* Detached State - Once Persistence Context/Sesion is closed, all the attached entities become detached. Successive
+changes will no longer be detected or propogated to db. To Reattach you can use session update or merge method.
+
+* Removed State - Once session.delete operation is performed, the actual deletions happens during session flush time. 
+
 ### Hibernate Config XML file
 ```
 <hibernate-configuration>
