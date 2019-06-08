@@ -8,16 +8,21 @@ Also beware of the n+1-problem. Hibernate will not actually load all children wh
 
 ### The differences between get() and load() methods are given below
 get()	
-Returns null if an object is not found.
-Always hits the database.
-It returns the real object, not the proxy.	
-It should be used if you are not sure about the existence of instance.	
+* Returns null if an object is not found, but execution continues.
+* Eager Loading & always hits the database immediately & returns original object.
+* It returns the real object, not the proxy.	
+* It should be used if you are not sure about the existence of instance.	
 
-load()
-Throws ObjectNotFoundException if an object is not found.
-Doesn't hit the database.
-It returns proxy object.
-It should be used if you are sure that instance exists.
+load method has 3 implementations - 
+* public Object load(Class classObj, Serializable id) throws HibernateException;
+* public Object load(String entityName, Serializable id) throws HibernateException
+* public void load(Object obj, Serializable id) throws HibernateException;
+
+* Throws ObjectNotFoundException if an object is not found.
+* Lazy loading as it hit the database only when it tries to retrieve other properties of object.
+* It returns proxy object. Proxy object is temporary object which only contains primary key of the object. If no row
+	corresponding to id is found, it throws ObjectNotFoundException.
+* It should be used if you are sure that instance exists.
 
 ### The update() method	merge() method
 update() should be used inside the session only. After closing the session, it will throw the error.	

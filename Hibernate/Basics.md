@@ -1,3 +1,6 @@
+### Hibernate Entity State
+
+
 ### Hibernate Config XML file
 ```
 <hibernate-configuration>
