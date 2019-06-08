@@ -39,6 +39,13 @@ session flush method.
     </session-factory>
 </hibernate-configuration>
 ```
+#### It also has a property **hibernate.hbm2ddl.auto** which validates & exports DDL to database when session factory 
+is created, list of possible options are,
+* validate: validate the schema, makes no changes to the database.
+* update: update the schema.
+* create: creates the schema, destroying previous data.
+* create-drop: drop the schema when the SessionFactory is closed explicitly, 
+typically when the application is stopped.
 
 ### Hibernate Mapping file
 ```
