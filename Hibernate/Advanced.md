@@ -28,6 +28,12 @@ load method has 3 implementations -
 update() should be used inside the session only. After closing the session, it will throw the error.	
 merge() should be used if you don't know the state of the session, means you want to make the modification at any time.
 
+### save() & persist() method
+|save|persist|
+|---|---|
+|Return Type is Serializable object|Return Type is void|
+|Insert happens immediately no matter if you are outside transaction boundary|Gaurantees that it will not execute insert if it is outside transaction boundary|
+
 
 ### @EmbeddedId is used to instruct Hibernate that the Employee entity uses a compound key.
 ```
