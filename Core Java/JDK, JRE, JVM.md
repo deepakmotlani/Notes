@@ -25,3 +25,6 @@ It is an implementation of JVM & provides platform to execute programs.
 JRE doesn't contain any development tools. If you just want to execute a program JRE is suffiecient.
 
 It contains JVM & libraries.
+
+
+**NOTE - JDK, JRE & JVM are all platform dependent, however Java is platform independent.**
