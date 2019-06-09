@@ -34,8 +34,11 @@ you can supply them using init-param & context-param which are supplied to Servl
 **Diff b/w BeanFactory & ApplicationContext**
 * BeanFactory creates object when getBean() method is called i.e. on demand i.e. This is called Lazy Container.
 * ApplicationContext creates object when container loads the spring XML files. This is called Eager Container(in case if bean scope is singleton). This has more features as compared to BeanFactory, that's why it is recommended.
-
 * For scope prototype both containers create instances on user request.
+* BeanFactory doesn't provide support for internationalization but ApplicationContext does.
+* ApplicationContext extends BeanFactory.
+* ApplicationContext supports event publication to registered listeners.
+* ApplicationContext provides access to resources such as URL/files.
 
 * Containers create objects using Class.forName(). Spring can create instances even if the constructor is private for the class. It internally uses reflexion, it access the constructor of your class & then create instance.
 * By using reflexion we can also create instance of classes with private constructor.
