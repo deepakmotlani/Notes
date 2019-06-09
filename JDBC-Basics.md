@@ -37,7 +37,7 @@
 
 
 **How can we read & write images in db**
-We can do this using blog type & using preparedStatement to store & retrieve it. We can associate an image 
+We can do this using blob type & using preparedStatement to store & retrieve it. We can associate an image 
 with FileInputStream & associate this fileInputStream with preparedStatement. Similarly we can use resultSet to
 read the blob data & write it to fileOutputStream
 

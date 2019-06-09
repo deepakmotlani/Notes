@@ -42,6 +42,20 @@ Query for populating multiple domain objects
 
 We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder**
 
+** We need datasource object to create JdbcTemplate object**, see below configuration -
+```
+<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />  
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />  
+	<property name="username" value="system" />  
+	<property name="password" value="oracle" />  
+</bean>  
+  
+<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">  
+	<property name="dataSource" ref="ds"></property>  
+</bean>  
+```
+
 ## Important Points to remember
 1. You should always use connection pools to get the database connection object instead of directly getting database connection. Advantage of doing so is that we can make sure that we are opening connections upto certain limit.
 2. If we try to open more than specicified number of connections from database, it will start throwing exceptions.
