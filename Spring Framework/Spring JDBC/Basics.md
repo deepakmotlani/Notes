@@ -42,7 +42,7 @@ Query for populating multiple domain objects
 
 We can retrieve auto-generated keys i.e. primary keys using **GeneratedKeyHolder**
 
-** We need datasource object to create JdbcTemplate object**, see below configuration -
+**We need datasource object to create JdbcTemplate object**, see below configuration -
 ```
 <bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
 	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />  
