@@ -15,7 +15,7 @@ Static methods are available only through & inside the interface. It can't be ov
 
 To call it out side the interface, standard approach would be
 
-![](https://github.com/deepakmotlani/Notes/blob/master/Java-8/images/interface-static-method-usage.PNG)
+![](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/Java-8/images/interface-static-method-usage.PNG)
 
 Output would be
 
