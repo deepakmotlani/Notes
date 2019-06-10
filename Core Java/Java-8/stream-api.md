@@ -1,5 +1,13 @@
 A new **java.util.stream** has been added in Java 8 to perform filter/map/reduce like operations with the collection. Stream API will allow sequential as well as parallel execution. This is one of the best feature.
 
+**Stream has following intermediate & terminal operations**
+* Intermediate Operations
+	* map: The map method is used to map the items in the collection to other objects according to the Predicate passed as argument.
+	
+		List square = number.stream().map(x->x*x).collect(Collectors.toList());
+
+See more from here https://www.geeksforgeeks.org/stream-in-java/
+
 Collection interface has been extended with **stream()** and **parallelStream()** default methods to get the Stream for sequential and parallel execution. Let’s see their usage with simple example
 
 ```
