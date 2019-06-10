@@ -30,7 +30,7 @@ In the above configuration, I am asking spring to load all files that match -con
 1. Middle-tier transaction services
 2. Data access objects & anything that you might want to use across application.
 
-**Remember there is 1 Application Context per application, which acts as root-application-context & it is shared between multiple we application context. Using context-param to define contextConfigLocation creates this root-application context.**
+**Remember there is 1 Application Context per application, which acts as root-application-context & it is shared between multiple web application context. Using context-param to define contextConfigLocation creates this root-application context.**
 
 **Web Application Context** is the child context of application context. Each DispatcherServlet defined in Spring web application will have an associated web Application Context. This is how we initialize it.
 

@@ -58,6 +58,12 @@ public class SpringBoot {
 	}
 }
 ```
+**@SpringBootApplication combines 3 annotations** -
+
+* @EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism.
+* @ComponentScan: enable @Component scan on the package where the application is located.
+* @Configuration: allow to register extra beans in the context or import additional configuration classes.
+
 This is pretty much, you can just run this main class & you will see that spring boot will run tomcat server on port
 8080 & also deploy your application on it.
 Now what is happening in b/g is SpringApplication.run method does following
