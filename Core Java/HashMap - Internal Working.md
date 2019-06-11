@@ -44,7 +44,7 @@ So this again generates hashCode of 11* & index 6. This is a case of **Hash Coll
 via hashCode() & equals() method to check if both the keys are same. If keys are same it replaces older value with
 new one. If it is different then it connects this inserts this node next to last node in linked list.
 
-![](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/Hashmap_Working_3.jpg)
+![](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/Hashmap_working_3.jpg)
 
 
 ## Get elements from HashMap
