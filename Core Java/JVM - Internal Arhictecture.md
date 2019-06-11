@@ -29,4 +29,4 @@ There are 3 kinds of Loaders -
 **JVM follows delegation-hierarchy for loading classes. Application Class Loader delegeates to Extension which in 
 	turn delegates to Bootstrap class loader. If the class is found on bootstrap path it is loaded, otherwise
 	request is given back to Extension class loader & finally back to System/Application class loader. At last if
-	system doesn't find the class, it throws ClassNotFoundException.
+	system doesn't find the class, it throws ClassNotFoundException.**
