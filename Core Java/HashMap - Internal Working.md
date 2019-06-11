@@ -15,3 +15,5 @@ Internally it uses linked structure to connect nodes.
 
 Default array size is 16 i.e. number of Buckets is 16.
 
+* Initial Empty HashMap
+!()[https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/Hashmap_Empty.jpg]
