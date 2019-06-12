@@ -65,7 +65,15 @@ It has 5 major components -
 * Native Method Stack - For every thread native method stack is maintained. It stores native method information.
 	What is native method - A method which is written in some other language, like Java supports C & C++ integration.
 
-
-
-
-https://www.geeksforgeeks.org/jvm-works-jvm-architecture/
+### Execution Engine
+The bytecode which was assigned to Runtime Data Area will be executed by Execution Engine. 
+* Interpreter - This interpretes the byte codes faster, but executes slowly. Disadvantage of interpreter, 
+	is that if 1 method is called multiple times, every time new interpretation is required.
+* JIT Compiler - This neutralizes the disadvantage of Interpreter. Execution Engine takes help of Interpreter to
+	convert bytecode, but when it finds repeated calls, it uses JIT compiler, which converts bytecode to native code &
+	when it finds repeated calls it uses it uses already compiled native code.
+* Garbage Collector - Collects & removes unreferenced objects. It is triggered by System.gc(), but execution is not
+	guaranteed.
+* Java Native Interface - JNI will be interacting with Native Method libraries & provides the native libraries
+	required for execution engine. It enables JVM to call C/C++ libraries. 
+* Native Method Libraries - It is a collection of native libraries(C, C++) which are required by Execution Engine.
