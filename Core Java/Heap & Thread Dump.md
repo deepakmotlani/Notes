@@ -2,6 +2,8 @@
 It is a snapshot of all the objects in the memory at any given point of time. These help us troubleshooting memory
 leak issues. Heap dump are usually stored in binary format .hprof files. We can analyse this in tools like JVisualVM etc.
 
+![](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/heap-dump.PNG)
+
 **What is Java memory leak?**
 When certain objects are not used by application any more but it is not identified by garbage collector as unused.
 As a result objects remain in memory indefinitely reducing the memory available to application.
@@ -30,3 +32,5 @@ Since our applications are multi-threaded & if there are working on shared resou
 occur. Thread Dump is used to analyze thread contention & it proides exact status of each thread & its call stack.
 
 We can generate this using multiple ways, 1 of them is JVisualVM.
+
+![](https://github.com/deepakmotlani/Notes/blob/master/Core%20Java/images/thread-dump.PNG)
