@@ -85,7 +85,7 @@ false
 ```
 
 **Next - lets add an object of Date in our class & see that clone method will not create separate copy of Date object
-. Cloned object will also point to same Date object as orignial object.**
+. Cloned object will also point to same Date object as orignial object. This is called Shallow Cloning**
 
 ```
 public class ClonebleTest {
@@ -144,3 +144,6 @@ id: 1 name: Deepak date: Fri Jun 21 11:57:05 IST 2019
 false
 true
 ```
+
+**Next if you want Deep Cloning i.e. separate object of Date also then you need to override the clone method &
+create your new Date objects & assign it.**
