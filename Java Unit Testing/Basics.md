@@ -13,8 +13,10 @@
 
 * @Runwith - provided by Junit, attaches runner with test class to initialize test data
 * @Test - provided by Junit, use to indicate a test case
-* @InjectMock - provided by Mockito, used to create & inject mock object
-* @Mock - provided by Mockito, used to create the object to be injected
+* @InjectMock - provided by Mockito, used to create & inject mock objects.
+* @Mock - provided by Mockito, used to create the object to be injected.
+
+**@Mock creates a mock. @InjectMocks creates an instance of the class and injects the mocks that are created with the @Mock (or @Spy) annotations into this instance.**
 
 ### Mockito add behaviour
 ```
@@ -105,8 +107,8 @@ public void testAdd() {
 ```
 
 ### Junit provides following annotations
-* @BeforeClass – Run once before any of the test methods in the class, public static void
-* @AfterClass – Run once after all the tests in the class have been run, public static void
-* @Before – Run before @Test, public void
-* @After – Run after @Test, public void
-* @Test – This is the test method to run, public void
+* @BeforeClass â€“ Run once before any of the test methods in the class, public static void
+* @AfterClass â€“ Run once after all the tests in the class have been run, public static void
+* @Before â€“ Run before @Test, public void
+* @After â€“ Run after @Test, public void
+* @Test â€“ This is the test method to run, public void
