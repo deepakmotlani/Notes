@@ -114,10 +114,10 @@ public class Employee{
 **@Column** annotation specifies the details of the column for this property or field. If @Column annotation is not specified, property name will be used as the column name by default.
 
 **@OneToMany** used to indicate 1:N from containing entity & field entity. Below are attributes -
-	* cascade = CascadeType[], with possible values ALL, DETACH, MERGE, REMOVE, PERSIST, REFRESH
-	* fetch = whether association should be fetched lazily or eagerly
-	* mappedBy = field that owns relationship
-	* orphanRemoval = whether to delete the orpans
+* cascade = CascadeType[], with possible values ALL, DETACH, MERGE, REMOVE, PERSIST, REFRESH
+* fetch = whether association should be fetched lazily or eagerly
+* mappedBy = field that owns relationship
+* orphanRemoval = whether to delete the orpans
 
 **@ManyToOne** used to indicate N:1 from containing entity & field entity. Or we can say this is used on foreign keys
 	of entity. Genrally accompanied with @JoinColumn
