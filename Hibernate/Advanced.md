@@ -7,22 +7,18 @@ Say you have a parent and that parent has a collection of children. Hibernate no
 Also beware of the n+1-problem. Hibernate will not actually load all children when you access the collection. Instead, it will load each child individually. When iterating over the collection, this causes a query for every child. In order to avoid this, you can trick hibernate into loading all children simultaneously, e.g. by calling parent.getChildren().size().
 
 ### The differences between get() and load() methods are given below
-get()	
-* Returns null if an object is not found, but execution continues.
-* Eager Loading & always hits the database immediately & returns original object.
-* It returns the real object, not the proxy.	
-* It should be used if you are not sure about the existence of instance.	
+
+|get()|load()|
+|---|---|
+|Returns null if an object is not found, but execution continues.|Throws ObjectNotFoundException if an object is not found.|
+|Eager Loading & always hits the database immediately & returns original object.|Lazy loading as it hit the database only when it tries to retrieve other properties of object.|
+|It returns the real object, not the proxy.|It returns proxy object. Proxy object is temporary object which only contains primary key of the object. If no row corresponding to id is found, it throws ObjectNotFoundException.|
+|It should be used if you are not sure about the existence of instance.|It should be used if you are sure that instance exists.|
 
 load method has 3 implementations - 
 * public Object load(Class classObj, Serializable id) throws HibernateException;
 * public Object load(String entityName, Serializable id) throws HibernateException
 * public void load(Object obj, Serializable id) throws HibernateException;
-
-* Throws ObjectNotFoundException if an object is not found.
-* Lazy loading as it hit the database only when it tries to retrieve other properties of object.
-* It returns proxy object. Proxy object is temporary object which only contains primary key of the object. If no row
-	corresponding to id is found, it throws ObjectNotFoundException.
-* It should be used if you are sure that instance exists.
 
 ### The update() method	merge() method
 update() should be used inside the session only. After closing the session, it will throw the error.	
