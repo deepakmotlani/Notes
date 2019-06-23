@@ -124,4 +124,4 @@ public class Employee{
 
 **@JoinColumn** genrally use with @ManyToOne with name attribute indicating the name of column in table.
 
-**We should hibernateTemplate object to perform database transactions, we need to create the hibernateTemplate from sessionFactory, this hibernateTemplate object takes care of everything i.e. opening & closing connections. we simply write hibernateTemplate.save or update etc. Session Factory manages the pools of sessions internally. **
+**We should hibernateTemplate object to perform database transactions, we need to create the hibernateTemplate from sessionFactory, this hibernateTemplate object takes care of everything i.e. opening & closing connections. we simply write hibernateTemplate.save or update etc. Session Factory manages the pools of sessions internally.**
