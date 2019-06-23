@@ -72,3 +72,5 @@ public static void main(String[] args) {
 	System.out.print(integers);
 }
 ```
+
+**Why iterator.remove() doesn't throw exception, but list.remove() does throw is because, iterator maintains a data structure internally (or may be can say a copy of collection), whenever you perform any operation on iterator it matches the internal state with the actual state of collection, if it doesn't match it throws ConcurrentModificationException, but if you use iterator.remove() it will update the internal state of collection as well as the original collection, that's why it doesn't throw exception**
