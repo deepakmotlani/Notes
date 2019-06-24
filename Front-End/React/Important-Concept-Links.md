@@ -2,7 +2,7 @@
 
 [React Fragements](https://reactjs.org/docs/fragments.html)
 
-[React High Order Components](https://reactjs.org/docs/fragments.html)
+[React High Order Components](https://reactjs.org/docs/higher-order-components.html)
 
 [Refs](https://hackernoon.com/refs-in-react-all-you-need-to-know-fb9c9e2aeb81)
 
