@@ -114,14 +114,14 @@ public class Employee{
 **@Column** annotation specifies the details of the column for this property or field. If @Column annotation is not specified, property name will be used as the column name by default.
 
 **@OneToMany** used to indicate 1:N from containing entity & field entity. Below are attributes -
-	* cascade = CascadeType[], with possible values ALL, DETACH, MERGE, REMOVE, PERSIST, REFRESH
-	* fetch = whether association should be fetched lazily or eagerly
-	* mappedBy = field that owns relationship
-	* orphanRemoval = whether to delete the orpans
+* cascade = CascadeType[], with possible values ALL, DETACH, MERGE, REMOVE, PERSIST, REFRESH
+* fetch = whether association should be fetched lazily or eagerly
+* mappedBy = field that owns relationship
+* orphanRemoval = whether to delete the orpans
 
 **@ManyToOne** used to indicate N:1 from containing entity & field entity. Or we can say this is used on foreign keys
 	of entity. Genrally accompanied with @JoinColumn
 
 **@JoinColumn** genrally use with @ManyToOne with name attribute indicating the name of column in table.
 
-**We should hibernateTemplate object to perform database transactions, we need to create the hibernateTemplate from sessionFactory, this hibernateTemplate object takes care of everything i.e. opening & closing connections. we simply write hibernateTemplate.save or update etc. Session Factory manages the pools of sessions internally. **
+**We should hibernateTemplate object to perform database transactions, we need to create the hibernateTemplate from sessionFactory, this hibernateTemplate object takes care of everything i.e. opening & closing connections. we simply write hibernateTemplate.save or update etc. Session Factory manages the pools of sessions internally.**
