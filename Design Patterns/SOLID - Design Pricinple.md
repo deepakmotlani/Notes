@@ -12,7 +12,7 @@
 	A module will be said to be closed if it is available for use by other modules. This assumes that the module 
 		has been given a well-defined, stable description.
 
-3. **Liskov substitution principle** - 
+3. **Liskov substitution principle** - https://stackify.com/solid-design-liskov-substitution-principle/
 		
 4. **Interface segregation principle** - Interface-segregation principle (ISP) states that no client should be 
 	forced to depend on methods it does not use. ISP splits interfaces that are very large into smaller and more 
