@@ -1,5 +1,7 @@
 ## Twelve Factor App Methodology
 
+**1A-2B-3C-3D-1L-2P**
+
 1. **Codebase** - One codebase tracked in version control & that can be used for many deployments. You should not 
 create different repositories when you need different setup for production. You can have multiple branches, versions
 to deploy on different environments.
